@@ -1,0 +1,7 @@
+<suite name="Input Forms">
+    <test name="Simple Forms">
+        <classes>
+            <class name="tests.SimpleFormTests"/>
+        </classes>
+    </test>
+</suite>
