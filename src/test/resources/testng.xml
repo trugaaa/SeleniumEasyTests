@@ -1,7 +1,7 @@
 <suite name="Input Forms">
     <test name="Simple Forms">
         <classes>
-            <class name="tests.SimpleFormTests"/>
+            <class name="tests.input_forms.SimpleFormTests"/>
         </classes>
     </test>
 </suite>

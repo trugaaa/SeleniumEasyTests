@@ -1,4 +1,4 @@
-package tests;
+package tests.input_forms;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -6,8 +6,7 @@ import org.testng.annotations.Test;
 import pages.input_forms.SimpleFormPage;
 import util.SingltonDriver;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class SimpleFormTests {
     SimpleFormPage simpleFormPage;
@@ -20,13 +19,25 @@ public class SimpleFormTests {
     @Test
     public void successfulSingleFieldWrite() {
         simpleFormPage.writeUserMessage("123");
-        assertTrue(simpleFormPage.verifyWriteMessage("123"));
+       assertEquals(simpleFormPage.getUserWroteResultMessage(),"123");
     }
 
     @Test
     public void unsuccessfulSingleFieldWrite() {
         simpleFormPage.writeUserMessage("123");
-        assertFalse(simpleFormPage.verifyWriteMessage("231"));
+        assertEquals(simpleFormPage.getUserWroteResultMessage(),"123");
+    }
+
+    @Test
+    public void writeAAndBWithResult(){
+        simpleFormPage.writeAAndB(123,321);
+        assertEquals(simpleFormPage.getValueOfSumResult(),"444");
+    }
+
+    @Test
+    public void oneValuePresent(){
+        simpleFormPage.writeA(1);
+        assertEquals(simpleFormPage.getValueOfSumResult(),"NaN");
     }
 
     @AfterMethod
