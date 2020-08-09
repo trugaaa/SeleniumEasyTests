@@ -35,7 +35,7 @@ public class SimpleFormTests {
     }
 
     @Test
-    public void oneValuePresent(){
+    public void onlyAValuePresent(){
         simpleFormPage.writeA(1);
         assertEquals(simpleFormPage.getValueOfSumResult(),"NaN");
     }
