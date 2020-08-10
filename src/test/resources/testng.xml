@@ -2,6 +2,7 @@
     <test name="Simple Forms">
         <classes>
             <class name="tests.input_forms.SimpleFormTests"/>
+            <class name="tests.input_forms.CheckboxTests"/>
         </classes>
     </test>
 </suite>
