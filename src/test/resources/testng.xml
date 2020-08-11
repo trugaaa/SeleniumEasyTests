@@ -1,8 +1,9 @@
 <suite name="Input Forms">
     <test name="Simple Forms">
         <classes>
-            <class name="tests.input_forms.SimpleFormTests"/>
-            <class name="tests.input_forms.CheckboxTests"/>
+            <class name="tests.input_forms.SimpleFormTests">SimpleFormTests</class>
+            <class name="tests.input_forms.CheckboxTests">CheckboxTests</class>
+            <class name="tests.input_forms.RadioButtonsTests">RadioButtonsTests</class>
         </classes>
     </test>
 </suite>
