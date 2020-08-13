@@ -54,11 +54,11 @@ public class SingltonDriver {
     }
 
     public static WebElement waitAndFind(By selector) {
-        try {
-            Thread.sleep(2500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(2500);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return driver.findElement(selector);
     }
 }
