@@ -7,7 +7,7 @@ public class WebElementExtendedMethods {
         return SingltonDriver.waitAndFind(locator).isSelected();
     }
 
-    public static String getElementValue(By locator){
+    public static String getElementValue(By locator) {
         return SingltonDriver.waitAndFind(locator).getAttribute("value");
     }
 }
