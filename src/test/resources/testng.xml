@@ -4,6 +4,7 @@
             <class name="tests.input_forms.SimpleFormTests">SimpleFormTests</class>
             <class name="tests.input_forms.CheckboxTests">CheckboxTests</class>
             <class name="tests.input_forms.RadioButtonsTests">RadioButtonsTests</class>
+            <class name="tests.input_forms.SelectDropdownTests">SelectDropdown</class>
         </classes>
     </test>
 </suite>
