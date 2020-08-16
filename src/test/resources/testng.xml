@@ -8,4 +8,9 @@
             <class name="tests.input_forms.AjaxFormTests">Ajax Form Tests</class>
         </classes>
     </test>
+    <test name="Date Pickers">
+        <classes>
+            <class name="tests.date_pickers.BootstrapDatePickerTests">Bootstrap Date Picker Tests</class>
+        </classes>
+    </test>
 </suite>

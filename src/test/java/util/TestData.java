@@ -38,4 +38,8 @@ public class TestData {
     public final static String titleAjaxForm = "title";
     public final static String commentAjaxForm = "comment";
     public final static String ajaxProcessing = "Ajax Request is Processing!";
+
+    /*
+    Bootstrap Date Picker
+     */
 }

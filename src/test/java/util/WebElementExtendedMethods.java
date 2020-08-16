@@ -20,4 +20,8 @@ public class WebElementExtendedMethods {
         String[] rgb = getCSSBorderColor(selector);
         return Integer.parseInt(rgb[0]) > 225 && Integer.parseInt(rgb[1]) < 20 && Integer.parseInt(rgb[2]) < 20;
     }
+
+    public static String getClass(By selector) {
+        return SingletonDriver.waitAndFind(selector).getAttribute("class");
+    }
 }
