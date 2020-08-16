@@ -30,4 +30,12 @@ public class TestData {
     public final static String texas = "Texas";
     public final static String expectedMultiDropdownGetAllSelectedText = String.format("Options selected are : %s,%s,%s", california, florida, texas);
     public final static String expectedMultiDropdownGetFirstSelectedText = String.format("First selected option is : %s", california);
+
+    /*
+    Ajax Form
+     */
+    public final static String successfulAjaxResultText = "Form submited Successfully!";
+    public final static String titleAjaxForm = "title";
+    public final static String commentAjaxForm = "comment";
+    public final static String ajaxProcessing = "Ajax Request is Processing!";
 }

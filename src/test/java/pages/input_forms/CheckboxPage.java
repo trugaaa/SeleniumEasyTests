@@ -1,7 +1,7 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import util.SingltonDriver;
+import util.SingletonDriver;
 import util.TestData;
 import util.WebElementExtendedMethods;
 
@@ -10,7 +10,7 @@ public class CheckboxPage {
     public final static String CHECKBOX_URL = "https://www.seleniumeasy.com/test/basic-checkbox-demo.html";
 
     public CheckboxPage() {
-        SingltonDriver.init(CHECKBOX_URL);
+        SingletonDriver.init(CHECKBOX_URL);
     }
 
     /*
@@ -39,20 +39,20 @@ public class CheckboxPage {
      * Actions
      */
     public void checkSingleCheckboxClick() {
-        SingltonDriver.waitAndFind(checkBoxLocator).click();
+        SingletonDriver.waitAndFind(checkBoxLocator).click();
 
     }
 
     public String getCheckboxResultText() {
-        return SingltonDriver.waitAndFind(singleCheckboxResultMessageLocator).getText();
+        return SingletonDriver.waitAndFind(singleCheckboxResultMessageLocator).getText();
     }
 
     public void checkUncheckButtonClick() {
-        SingltonDriver.waitAndFind(checkUncheckAllButtonLocator).click();
+        SingletonDriver.waitAndFind(checkUncheckAllButtonLocator).click();
     }
 
     public void checkFirstOption() {
-        SingltonDriver.waitAndFind(option1Locator).click();
+        SingletonDriver.waitAndFind(option1Locator).click();
     }
 
     /*

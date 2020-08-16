@@ -1,13 +1,13 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import util.SingltonDriver;
+import util.SingletonDriver;
 
 public class SimpleFormPage {
     public final static String INPUT_FORMS_SIMPLE_FORM_URL = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
 
     public SimpleFormPage() {
-        SingltonDriver.init(INPUT_FORMS_SIMPLE_FORM_URL);
+        SingletonDriver.init(INPUT_FORMS_SIMPLE_FORM_URL);
     }
 
     /*
@@ -36,8 +36,8 @@ public class SimpleFormPage {
      * Actions
      */
     public void writeUserMessage(String message) {
-        SingltonDriver.waitAndFind(userMessageLocator).sendKeys(message);
-        SingltonDriver.waitAndFind(userMessageButtonLocator).click();
+        SingletonDriver.waitAndFind(userMessageLocator).sendKeys(message);
+        SingletonDriver.waitAndFind(userMessageButtonLocator).click();
     }
 
     public void writeAAndB(int a, int b) {
@@ -46,11 +46,11 @@ public class SimpleFormPage {
     }
 
     public void writeA(int a) {
-        SingltonDriver.waitAndFind(aEnterFieldLocator).sendKeys(String.valueOf(a));
+        SingletonDriver.waitAndFind(aEnterFieldLocator).sendKeys(String.valueOf(a));
     }
 
     public void writeB(int b) {
-        SingltonDriver.waitAndFind(bEnterFieldLocator).sendKeys(String.valueOf(b));
+        SingletonDriver.waitAndFind(bEnterFieldLocator).sendKeys(String.valueOf(b));
     }
 
 
@@ -58,11 +58,11 @@ public class SimpleFormPage {
      * Verifications
      */
     public String getUserWroteResultMessage() {
-        return SingltonDriver.waitAndFind(userDisplayTextLocator).getText();
+        return SingletonDriver.waitAndFind(userDisplayTextLocator).getText();
     }
 
     public String getValueOfSumResult(){
-        SingltonDriver.waitAndFind(sumResultButtonLocator).click();
-        return SingltonDriver.waitAndFind(sumResultLocator).getText();
+        SingletonDriver.waitAndFind(sumResultButtonLocator).click();
+        return SingletonDriver.waitAndFind(sumResultLocator).getText();
     }
 }

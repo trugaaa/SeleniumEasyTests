@@ -1,20 +1,17 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import util.SingltonDriver;
+import util.SingletonDriver;
 import util.TestData;
-import util.WebElementExtendedMethods;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SelectDropdownPage {
     private final String SELECT_DROPDOWN_URL = "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html";
 
     public SelectDropdownPage() {
-        SingltonDriver.init(SELECT_DROPDOWN_URL);
+        SingletonDriver.init(SELECT_DROPDOWN_URL);
     }
 
     /*
@@ -52,38 +49,38 @@ public class SelectDropdownPage {
      * Actions
      */
     public void selectADayDropdownClick() {
-        SingltonDriver.waitAndFind(selectADaySelector).click();
+        SingletonDriver.waitAndFind(selectADaySelector).click();
     }
 
     public void selectSunday() {
         selectADayDropdownClick();
-        SingltonDriver.waitAndFind(selectSundaySelector).click();
+        SingletonDriver.waitAndFind(selectSundaySelector).click();
     }
 
     public void selectMultiValues(List<String> multiDropDownElementsToBeChecked) {
-        SingltonDriver.waitAndFind(multiValuesSelectDropdownSelector).click();
-        multiDropdown = new Select(SingltonDriver.waitAndFind(multiValuesSelectDropdownSelector));
+        SingletonDriver.waitAndFind(multiValuesSelectDropdownSelector).click();
+        multiDropdown = new Select(SingletonDriver.waitAndFind(multiValuesSelectDropdownSelector));
         for (String element : multiDropDownElementsToBeChecked) {
             multiDropdown.selectByVisibleText(element);
         }
     }
 
     public void getFirstSelectedButtonClick() {
-        SingltonDriver.waitAndFind(firstSelectedButtonSelector).click();
+        SingletonDriver.waitAndFind(firstSelectedButtonSelector).click();
     }
 
     public void getAllSelectedButtonClick() {
-        SingltonDriver.waitAndFind(getAllSelectedButtonSelector).click();
+        SingletonDriver.waitAndFind(getAllSelectedButtonSelector).click();
     }
 
     /*
      * Verifications
      */
     public String getDropdownResultText() {
-        return SingltonDriver.waitAndFind(sundayExpectedResultTextSelector).getText();
+        return SingletonDriver.waitAndFind(sundayExpectedResultTextSelector).getText();
     }
 
     public String getResultMultiText() {
-        return SingltonDriver.waitAndFind(getMultiSelectedResultTextSelector).getText();
+        return SingletonDriver.waitAndFind(getMultiSelectedResultTextSelector).getText();
     }
 }

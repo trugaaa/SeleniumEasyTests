@@ -1,14 +1,14 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import util.SingltonDriver;
+import util.SingletonDriver;
 import util.WebElementExtendedMethods;
 
 public class RadioButtonsPage {
     public final static String RADIO_BUTTONS_URL = "https://www.seleniumeasy.com/test/basic-radiobutton-demo.html";
 
     public RadioButtonsPage() {
-        SingltonDriver.init(RADIO_BUTTONS_URL);
+        SingletonDriver.init(RADIO_BUTTONS_URL);
     }
 
     /*
@@ -45,39 +45,39 @@ public class RadioButtonsPage {
      * Actions
      */
     public void radioOptionButtonClick() {
-        SingltonDriver.waitAndFind(radioOptionButtonSelector).click();
+        SingletonDriver.waitAndFind(radioOptionButtonSelector).click();
     }
 
     public void checkMaleRadioOption() {
-        SingltonDriver.waitAndFind(radioOptionMaleSelector).click();
+        SingletonDriver.waitAndFind(radioOptionMaleSelector).click();
     }
 
     public void checkFemaleRadioOption() {
-        SingltonDriver.waitAndFind(radioOptionFemaleSelector).click();
+        SingletonDriver.waitAndFind(radioOptionFemaleSelector).click();
     }
 
     public void checkRadioGroupMaleOption() {
-        SingltonDriver.waitAndFind(radioGroupMaleOptionSelector).click();
+        SingletonDriver.waitAndFind(radioGroupMaleOptionSelector).click();
     }
 
     public void checkRadioGroupFemaleOption() {
-        SingltonDriver.waitAndFind(radioGroupFemaleOptionSelector).click();
+        SingletonDriver.waitAndFind(radioGroupFemaleOptionSelector).click();
     }
 
     public void checkFirstAgeGroupOption() {
-        SingltonDriver.waitAndFind(radioGroupFirstAgeGroupSelector).click();
+        SingletonDriver.waitAndFind(radioGroupFirstAgeGroupSelector).click();
     }
 
     public void checkSecondAgeGroupOption() {
-        SingltonDriver.waitAndFind(radioGroupSecondAgeGroupSelector).click();
+        SingletonDriver.waitAndFind(radioGroupSecondAgeGroupSelector).click();
     }
 
     public void checkRadioThirdAgeGroupOption() {
-        SingltonDriver.waitAndFind(radioGroupThirdAgeGroupSelector).click();
+        SingletonDriver.waitAndFind(radioGroupThirdAgeGroupSelector).click();
     }
 
     public void radioGroupButtonClick() {
-        SingltonDriver.waitAndFind(radioGroupResultButtonSelector).click();
+        SingletonDriver.waitAndFind(radioGroupResultButtonSelector).click();
     }
 
     /*
@@ -92,7 +92,7 @@ public class RadioButtonsPage {
     }
 
     public String getRadioCheckResultText() {
-        return SingltonDriver.waitAndFind(radioOptionResultTextSelector).getText();
+        return SingletonDriver.waitAndFind(radioOptionResultTextSelector).getText();
     }
 
     public Boolean isMaleRadioGroupOptionChecked() {
@@ -116,7 +116,7 @@ public class RadioButtonsPage {
     }
 
     public Boolean isRadioGroupTextRight(String gender, String ageGroup) {
-        return SingltonDriver.waitAndFind(radioGroupResultTextSelector).getText().contains(gender) &&
-                SingltonDriver.waitAndFind(radioGroupResultTextSelector).getText().contains(ageGroup);
+        return SingletonDriver.waitAndFind(radioGroupResultTextSelector).getText().contains(gender) &&
+                SingletonDriver.waitAndFind(radioGroupResultTextSelector).getText().contains(ageGroup);
     }
 }

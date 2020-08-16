@@ -1,10 +1,11 @@
 <suite name="Input Forms">
     <test name="Simple Forms">
         <classes>
-            <class name="tests.input_forms.SimpleFormTests">SimpleFormTests</class>
-            <class name="tests.input_forms.CheckboxTests">CheckboxTests</class>
-            <class name="tests.input_forms.RadioButtonsTests">RadioButtonsTests</class>
-            <class name="tests.input_forms.SelectDropdownTests">SelectDropdown</class>
+            <class name="tests.input_forms.SimpleFormTests">Simple Form Tests</class>
+            <class name="tests.input_forms.CheckboxTests">Checkbox Tests</class>
+            <class name="tests.input_forms.RadioButtonsTests">Radio Buttons Tests</class>
+            <class name="tests.input_forms.SelectDropdownTests">Select Dropdown Tests</class>
+            <class name="tests.input_forms.AjaxFormTests">Ajax Form Tests</class>
         </classes>
     </test>
 </suite>

@@ -4,7 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.input_forms.CheckboxPage;
-import util.SingltonDriver;
+import util.SingletonDriver;
 import util.TestData;
 
 import static org.testng.Assert.*;
@@ -40,6 +40,6 @@ public class CheckboxTests {
 
     @AfterMethod
     void dispose() {
-        SingltonDriver.close();
+        SingletonDriver.close();
     }
 }
