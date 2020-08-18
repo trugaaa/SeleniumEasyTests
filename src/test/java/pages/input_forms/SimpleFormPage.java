@@ -36,8 +36,8 @@ public class SimpleFormPage {
      * Actions
      */
     public void writeUserMessage(String message) {
-        SingletonDriver.waitAndFind(userMessageLocator).sendKeys(message);
-        SingletonDriver.waitAndFind(userMessageButtonLocator).click();
+        SingletonDriver.waitAndFindElement(userMessageLocator).sendKeys(message);
+        SingletonDriver.waitAndFindElement(userMessageButtonLocator).click();
     }
 
     public void writeAAndB(int a, int b) {
@@ -46,11 +46,11 @@ public class SimpleFormPage {
     }
 
     public void writeA(int a) {
-        SingletonDriver.waitAndFind(aEnterFieldLocator).sendKeys(String.valueOf(a));
+        SingletonDriver.waitAndFindElement(aEnterFieldLocator).sendKeys(String.valueOf(a));
     }
 
     public void writeB(int b) {
-        SingletonDriver.waitAndFind(bEnterFieldLocator).sendKeys(String.valueOf(b));
+        SingletonDriver.waitAndFindElement(bEnterFieldLocator).sendKeys(String.valueOf(b));
     }
 
 
@@ -58,11 +58,11 @@ public class SimpleFormPage {
      * Verifications
      */
     public String getUserWroteResultMessage() {
-        return SingletonDriver.waitAndFind(userDisplayTextLocator).getText();
+        return SingletonDriver.waitAndFindElement(userDisplayTextLocator).getText();
     }
 
     public String getValueOfSumResult(){
-        SingletonDriver.waitAndFind(sumResultButtonLocator).click();
-        return SingletonDriver.waitAndFind(sumResultLocator).getText();
+        SingletonDriver.waitAndFindElement(sumResultButtonLocator).click();
+        return SingletonDriver.waitAndFindElement(sumResultLocator).getText();
     }
 }

@@ -6,6 +6,7 @@
             <class name="tests.input_forms.RadioButtonsTests">Radio Buttons Tests</class>
             <class name="tests.input_forms.SelectDropdownTests">Select Dropdown Tests</class>
             <class name="tests.input_forms.AjaxFormTests">Ajax Form Tests</class>
+            <class name="tests.input_forms.JQuerySelectDropdownTests">JQuery Select Dropdown Tests</class>
         </classes>
     </test>
     <test name="Date Pickers">

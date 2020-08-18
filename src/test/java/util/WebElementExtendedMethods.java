@@ -1,14 +1,18 @@
 package util;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WebElementExtendedMethods {
     public static Boolean isElementChecked(By locator) {
-        return SingletonDriver.waitAndFind(locator).isSelected();
+        return SingletonDriver.waitAndFindElement(locator).isSelected();
     }
 
     public static String getElementValue(By locator) {
-        return SingletonDriver.waitAndFind(locator).getAttribute("value");
+        return SingletonDriver.waitAndFindElement(locator).getAttribute("value");
     }
 
     public static String[] getCSSBorderColor(By locator) {
@@ -22,6 +26,19 @@ public class WebElementExtendedMethods {
     }
 
     public static String getClass(By selector) {
-        return SingletonDriver.waitAndFind(selector).getAttribute("class");
+        return SingletonDriver.waitAndFindElement(selector).getAttribute("class");
+    }
+
+    public static String getElementTitle(By selector) {
+        return SingletonDriver.waitAndFindElement(selector).getAttribute("title");
+    }
+
+    public static List<String> getElementsText(List<WebElement> listOfElements) {
+        ArrayList<String> stringList = new ArrayList<>();
+        for (WebElement webElement : listOfElements) {
+            stringList.add(webElement.getText());
+        }
+        stringList.remove(stringList.size() - 1);
+        return stringList;
     }
 }

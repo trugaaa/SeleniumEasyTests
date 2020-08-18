@@ -24,15 +24,15 @@ public class AjaxFormPage {
     Actions
      */
     public void writeTitle(String title) {
-        SingletonDriver.waitAndFind(nameFieldSelector).sendKeys(title);
+        SingletonDriver.waitAndFindElement(nameFieldSelector).sendKeys(title);
     }
 
     public void writeComment(String comment) {
-        SingletonDriver.waitAndFind(commentFieldSelector).sendKeys(comment);
+        SingletonDriver.waitAndFindElement(commentFieldSelector).sendKeys(comment);
     }
 
     public void submitButtonClick() {
-        SingletonDriver.waitAndFind(submitButtonSelector).click();
+        SingletonDriver.waitAndFindElement(submitButtonSelector).click();
     }
 
     public void writeTitleAndComment(String title, String comment) {
@@ -49,7 +49,7 @@ public class AjaxFormPage {
     }
 
     public String isAjaxProcessingGetText(){
-        return SingletonDriver.waitAndFind(resultSubmitMessageSelector).getText();
+        return SingletonDriver.waitAndFindElement(resultSubmitMessageSelector).getText();
     }
 
 

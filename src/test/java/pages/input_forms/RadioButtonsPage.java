@@ -45,39 +45,39 @@ public class RadioButtonsPage {
      * Actions
      */
     public void radioOptionButtonClick() {
-        SingletonDriver.waitAndFind(radioOptionButtonSelector).click();
+        SingletonDriver.waitAndFindElement(radioOptionButtonSelector).click();
     }
 
     public void checkMaleRadioOption() {
-        SingletonDriver.waitAndFind(radioOptionMaleSelector).click();
+        SingletonDriver.waitAndFindElement(radioOptionMaleSelector).click();
     }
 
     public void checkFemaleRadioOption() {
-        SingletonDriver.waitAndFind(radioOptionFemaleSelector).click();
+        SingletonDriver.waitAndFindElement(radioOptionFemaleSelector).click();
     }
 
     public void checkRadioGroupMaleOption() {
-        SingletonDriver.waitAndFind(radioGroupMaleOptionSelector).click();
+        SingletonDriver.waitAndFindElement(radioGroupMaleOptionSelector).click();
     }
 
     public void checkRadioGroupFemaleOption() {
-        SingletonDriver.waitAndFind(radioGroupFemaleOptionSelector).click();
+        SingletonDriver.waitAndFindElement(radioGroupFemaleOptionSelector).click();
     }
 
     public void checkFirstAgeGroupOption() {
-        SingletonDriver.waitAndFind(radioGroupFirstAgeGroupSelector).click();
+        SingletonDriver.waitAndFindElement(radioGroupFirstAgeGroupSelector).click();
     }
 
     public void checkSecondAgeGroupOption() {
-        SingletonDriver.waitAndFind(radioGroupSecondAgeGroupSelector).click();
+        SingletonDriver.waitAndFindElement(radioGroupSecondAgeGroupSelector).click();
     }
 
     public void checkRadioThirdAgeGroupOption() {
-        SingletonDriver.waitAndFind(radioGroupThirdAgeGroupSelector).click();
+        SingletonDriver.waitAndFindElement(radioGroupThirdAgeGroupSelector).click();
     }
 
     public void radioGroupButtonClick() {
-        SingletonDriver.waitAndFind(radioGroupResultButtonSelector).click();
+        SingletonDriver.waitAndFindElement(radioGroupResultButtonSelector).click();
     }
 
     /*
@@ -92,7 +92,7 @@ public class RadioButtonsPage {
     }
 
     public String getRadioCheckResultText() {
-        return SingletonDriver.waitAndFind(radioOptionResultTextSelector).getText();
+        return SingletonDriver.waitAndFindElement(radioOptionResultTextSelector).getText();
     }
 
     public Boolean isMaleRadioGroupOptionChecked() {
@@ -116,7 +116,7 @@ public class RadioButtonsPage {
     }
 
     public Boolean isRadioGroupTextRight(String gender, String ageGroup) {
-        return SingletonDriver.waitAndFind(radioGroupResultTextSelector).getText().contains(gender) &&
-                SingletonDriver.waitAndFind(radioGroupResultTextSelector).getText().contains(ageGroup);
+        return SingletonDriver.waitAndFindElement(radioGroupResultTextSelector).getText().contains(gender) &&
+                SingletonDriver.waitAndFindElement(radioGroupResultTextSelector).getText().contains(ageGroup);
     }
 }

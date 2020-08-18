@@ -49,38 +49,38 @@ public class SelectDropdownPage {
      * Actions
      */
     public void selectADayDropdownClick() {
-        SingletonDriver.waitAndFind(selectADaySelector).click();
+        SingletonDriver.waitAndFindElement(selectADaySelector).click();
     }
 
     public void selectSunday() {
         selectADayDropdownClick();
-        SingletonDriver.waitAndFind(selectSundaySelector).click();
+        SingletonDriver.waitAndFindElement(selectSundaySelector).click();
     }
 
     public void selectMultiValues(List<String> multiDropDownElementsToBeChecked) {
-        SingletonDriver.waitAndFind(multiValuesSelectDropdownSelector).click();
-        multiDropdown = new Select(SingletonDriver.waitAndFind(multiValuesSelectDropdownSelector));
+        SingletonDriver.waitAndFindElement(multiValuesSelectDropdownSelector).click();
+        multiDropdown = new Select(SingletonDriver.waitAndFindElement(multiValuesSelectDropdownSelector));
         for (String element : multiDropDownElementsToBeChecked) {
             multiDropdown.selectByVisibleText(element);
         }
     }
 
     public void getFirstSelectedButtonClick() {
-        SingletonDriver.waitAndFind(firstSelectedButtonSelector).click();
+        SingletonDriver.waitAndFindElement(firstSelectedButtonSelector).click();
     }
 
     public void getAllSelectedButtonClick() {
-        SingletonDriver.waitAndFind(getAllSelectedButtonSelector).click();
+        SingletonDriver.waitAndFindElement(getAllSelectedButtonSelector).click();
     }
 
     /*
      * Verifications
      */
     public String getDropdownResultText() {
-        return SingletonDriver.waitAndFind(sundayExpectedResultTextSelector).getText();
+        return SingletonDriver.waitAndFindElement(sundayExpectedResultTextSelector).getText();
     }
 
     public String getResultMultiText() {
-        return SingletonDriver.waitAndFind(getMultiSelectedResultTextSelector).getText();
+        return SingletonDriver.waitAndFindElement(getMultiSelectedResultTextSelector).getText();
     }
 }

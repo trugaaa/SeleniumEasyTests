@@ -40,21 +40,21 @@ public class BootstrapDatePickerPage {
     Actions
      */
     public void soloDatePickerClick() {
-        SingletonDriver.waitAndFind(soloDatePickerSelector).click();
+        SingletonDriver.waitAndFindElement(soloDatePickerSelector).click();
     }
 
     public void currentDateSelect() {
         soloDatePickerClick();
-        SingletonDriver.waitAndFind(currentDateSelector).click();
+        SingletonDriver.waitAndFindElement(currentDateSelector).click();
     }
 
     public void clearDateSelect() {
         soloDatePickerClick();
-        SingletonDriver.waitAndFind(clearDateSelector).click();
+        SingletonDriver.waitAndFindElement(clearDateSelector).click();
     }
 
     private void mainHeaderSoloDatePickerClick(By selector) {
-        SingletonDriver.waitAndFind(selector).click();
+        SingletonDriver.waitAndFindElement(selector).click();
     }
 
     public void yearSelectionDataPickerOpen() {
@@ -63,21 +63,21 @@ public class BootstrapDatePickerPage {
     }
 
     public void selectDate(int year, BootstrapDatePickerTests.Months month, int day) {
-        SingletonDriver.waitAndFind(getYearSelector(year)).click();
+        SingletonDriver.waitAndFindElement(getYearSelector(year)).click();
         if (UtilMethods.getCurrentYear() >= year) {
             if (!WebElementExtendedMethods.getClass(getMonthSelector(month)).equals("month disabled")) {
-                SingletonDriver.waitAndFind(getMonthSelector(month)).click();
-                SingletonDriver.waitAndFind(getDaySelector(day)).click();
+                SingletonDriver.waitAndFindElement(getMonthSelector(month)).click();
+                SingletonDriver.waitAndFindElement(getDaySelector(day)).click();
             }
         }
     }
 
     public void startDateClick(){
-        SingletonDriver.waitAndFind(startDateSelector).click();
+        SingletonDriver.waitAndFindElement(startDateSelector).click();
     }
 
     public void endDateClick(){
-        SingletonDriver.waitAndFind(finishDateSelector).click();
+        SingletonDriver.waitAndFindElement(finishDateSelector).click();
     }
 
     /*

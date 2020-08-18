@@ -39,20 +39,20 @@ public class CheckboxPage {
      * Actions
      */
     public void checkSingleCheckboxClick() {
-        SingletonDriver.waitAndFind(checkBoxLocator).click();
+        SingletonDriver.waitAndFindElement(checkBoxLocator).click();
 
     }
 
     public String getCheckboxResultText() {
-        return SingletonDriver.waitAndFind(singleCheckboxResultMessageLocator).getText();
+        return SingletonDriver.waitAndFindElement(singleCheckboxResultMessageLocator).getText();
     }
 
     public void checkUncheckButtonClick() {
-        SingletonDriver.waitAndFind(checkUncheckAllButtonLocator).click();
+        SingletonDriver.waitAndFindElement(checkUncheckAllButtonLocator).click();
     }
 
     public void checkFirstOption() {
-        SingletonDriver.waitAndFind(option1Locator).click();
+        SingletonDriver.waitAndFindElement(option1Locator).click();
     }
 
     /*

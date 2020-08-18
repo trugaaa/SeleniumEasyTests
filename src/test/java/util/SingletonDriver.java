@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class SingletonDriver {
@@ -78,14 +79,21 @@ public class SingletonDriver {
 
     public static WebElement ajaxElementWait(By selector) {
         waitForAjax();
-        return waitAndFind(selector);
+        return waitAndFindElement(selector);
     }
 
-    public static WebElement waitAndFind(By selector) {
+    public static WebElement waitAndFindElement(By selector) {
         //Implicit wait for SECONDS_ELEMENT_WAIT seconds
         driver.manage().timeouts().implicitlyWait(SECONDS_LONG_WAIT, TimeUnit.SECONDS);
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(selector));
         return driver.findElement(selector);
+    }
+
+    public static List<WebElement> waitAndFindElements(By selector) {
+        //Implicit wait for SECONDS_ELEMENT_WAIT seconds
+        driver.manage().timeouts().implicitlyWait(SECONDS_LONG_WAIT, TimeUnit.SECONDS);
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(selector));
+        return driver.findElements(selector);
     }
 
 
