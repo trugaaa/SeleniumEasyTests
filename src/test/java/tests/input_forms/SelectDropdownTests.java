@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pages.input_forms.SelectDropdownPage;
 import util.SingletonDriver;
 import util.TestData;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,14 +30,14 @@ public class SelectDropdownTests {
     void selectMultiValuesGetAllSelected() {
         selectDropdownPage.selectMultiValues(prepareStatesList());
         selectDropdownPage.getAllSelectedButtonClick();
-        assertEquals(selectDropdownPage.getResultMultiText(),TestData.expectedMultiDropdownGetAllSelectedText);
+        assertEquals(selectDropdownPage.getResultMultiText(), TestData.expectedMultiDropdownGetAllSelectedText);
     }
 
     @Test
     void selectMultiValuesGetFirstSelected() {
         selectDropdownPage.selectMultiValues(prepareStatesList());
         selectDropdownPage.getFirstSelectedButtonClick();
-        assertEquals(selectDropdownPage.getResultMultiText(),TestData.expectedMultiDropdownGetFirstSelectedText);
+        assertEquals(selectDropdownPage.getResultMultiText(), TestData.expectedMultiDropdownGetFirstSelectedText);
     }
 
     @AfterMethod
@@ -44,7 +45,7 @@ public class SelectDropdownTests {
         SingletonDriver.close();
     }
 
-    private List<String> prepareStatesList(){
+    private List<String> prepareStatesList() {
         ArrayList<String> valuesToBeChecked = new ArrayList<>();
         valuesToBeChecked.add(TestData.florida);
         valuesToBeChecked.add(TestData.texas);

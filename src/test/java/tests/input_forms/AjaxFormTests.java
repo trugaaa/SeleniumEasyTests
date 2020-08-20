@@ -21,8 +21,8 @@ public class AjaxFormTests {
     @Test
     public void successFormSubmit() {
         ajaxFormPage.writeTitleAndComment(TestData.titleAjaxForm, TestData.commentAjaxForm);
-        assertEquals(ajaxFormPage.isAjaxProcessingGetText(),TestData.ajaxProcessing);
-        assertEquals(ajaxFormPage.isAjaxFormSuccessful(),TestData.successfulAjaxResultText);
+        assertEquals(ajaxFormPage.isAjaxProcessingGetText(), TestData.ajaxProcessing);
+        assertEquals(ajaxFormPage.isAjaxFormSuccessful(), TestData.successfulAjaxResultText);
     }
 
     @Test

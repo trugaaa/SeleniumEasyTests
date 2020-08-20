@@ -48,12 +48,12 @@ public class AjaxFormPage {
         return WebElementExtendedMethods.isBorderColorRed(nameFieldSelector);
     }
 
-    public String isAjaxProcessingGetText(){
+    public String isAjaxProcessingGetText() {
         return SingletonDriver.waitAndFindElement(resultSubmitMessageSelector).getText();
     }
 
 
-    public String isAjaxFormSuccessful(){
+    public String isAjaxFormSuccessful() {
         return SingletonDriver.ajaxElementWait(resultSubmitMessageSelector).getText();
     }
 

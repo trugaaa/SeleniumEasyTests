@@ -72,11 +72,11 @@ public class BootstrapDatePickerPage {
         }
     }
 
-    public void startDateClick(){
+    public void startDateClick() {
         SingletonDriver.waitAndFindElement(startDateSelector).click();
     }
 
-    public void endDateClick(){
+    public void endDateClick() {
         SingletonDriver.waitAndFindElement(finishDateSelector).click();
     }
 

@@ -19,25 +19,25 @@ public class SimpleFormTests {
     @Test
     public void successfulSingleFieldWrite() {
         simpleFormPage.writeUserMessage("123");
-       assertEquals(simpleFormPage.getUserWroteResultMessage(),"123");
+        assertEquals(simpleFormPage.getUserWroteResultMessage(), "123");
     }
 
     @Test
     public void unsuccessfulSingleFieldWrite() {
         simpleFormPage.writeUserMessage("123");
-        assertEquals(simpleFormPage.getUserWroteResultMessage(),"123");
+        assertEquals(simpleFormPage.getUserWroteResultMessage(), "123");
     }
 
     @Test
-    public void writeAAndBWithResult(){
-        simpleFormPage.writeAAndB(123,321);
-        assertEquals(simpleFormPage.getValueOfSumResult(),"444");
+    public void writeAAndBWithResult() {
+        simpleFormPage.writeAAndB(123, 321);
+        assertEquals(simpleFormPage.getValueOfSumResult(), "444");
     }
 
     @Test
-    public void onlyAValuePresent(){
+    public void onlyAValuePresent() {
         simpleFormPage.writeA(1);
-        assertEquals(simpleFormPage.getValueOfSumResult(),"NaN");
+        assertEquals(simpleFormPage.getValueOfSumResult(), "NaN");
     }
 
     @AfterMethod

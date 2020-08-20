@@ -61,7 +61,7 @@ public class SimpleFormPage {
         return SingletonDriver.waitAndFindElement(userDisplayTextLocator).getText();
     }
 
-    public String getValueOfSumResult(){
+    public String getValueOfSumResult() {
         SingletonDriver.waitAndFindElement(sumResultButtonLocator).click();
         return SingletonDriver.waitAndFindElement(sumResultLocator).getText();
     }

@@ -32,7 +32,7 @@ public class JQuerySelectDropdownPage {
     private final By selectedElementWithDropdownSelector = new By.ByXPath("(//span[@class='select2-selection__arrow'])[2]/parent::span/span[@class='select2-selection__rendered']");
 
     private By unCheckCheckedStateSelector(String state) {
-        return new By.ByXPath(String.format("//li[text()='%s']/span[text()='%s']", state, unCheckSymbol));
+        return new By.ByXPath(String.format("//li[text()='%s']/span", state));
     }
 
     private By getCountryListElementSelector(String country) {

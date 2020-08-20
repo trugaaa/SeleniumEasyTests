@@ -31,8 +31,6 @@ public class JQuerySelectDropdownTests {
         HashMap<String, String> stateMap = new HashMap<>();
         stateMap.put("Alas", "Alaska");
         stateMap.put("Ala", "Alabama");
-        stateMap.put("Kan", "Kansas");
-
         jQuerySelectDropdownPage.selectMultipleStates(stateMap);
         assertTrue(jQuerySelectDropdownPage.areAllElementsSelected(stateMap));
     }
@@ -41,7 +39,6 @@ public class JQuerySelectDropdownTests {
     void uncheckState() {
         HashMap<String, String> stateMap = new HashMap<>();
         HashMap<String, String> elementNotDeleted = new HashMap<>();
-        stateMap.put("Alas", "Alaska");
         stateMap.put("Ala", "Alabama");
         stateMap.put("Kan", "Kansas");
         elementNotDeleted.put("Ala", "Alabama");
