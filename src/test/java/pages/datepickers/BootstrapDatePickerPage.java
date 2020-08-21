@@ -1,7 +1,7 @@
 package pages.datepickers;
 
 import org.openqa.selenium.By;
-import tests.date_pickers.BootstrapDatePickerTests;
+import util.Months;
 import util.SingletonDriver;
 import util.UtilMethods;
 import util.WebElementExtendedMethods;
@@ -28,7 +28,7 @@ public class BootstrapDatePickerPage {
         return new By.ByXPath(String.format("//div[@class='datepicker-years']/table[@class='table-condensed']/tbody/tr/td/span[text()='%s']", year));
     }
 
-    private By getMonthSelector(BootstrapDatePickerTests.Months month) {
+    private By getMonthSelector(Months month) {
         return new By.ByXPath(String.format("//div[@class='datepicker-months']/table[@class='table-condensed']/tbody/tr/td/span[text()='%s']", month.toString()));
     }
 
@@ -62,7 +62,7 @@ public class BootstrapDatePickerPage {
         mainHeaderSoloDatePickerClick(mainMonthsHeaderSoloDatePickerSelector);
     }
 
-    public void selectDate(int year, BootstrapDatePickerTests.Months month, int day) {
+    public void selectDate(int year, Months month, int day) {
         SingletonDriver.waitAndFindElement(getYearSelector(year)).click();
         if (UtilMethods.getCurrentYear() >= year) {
             if (!WebElementExtendedMethods.getClass(getMonthSelector(month)).equals("month disabled")) {

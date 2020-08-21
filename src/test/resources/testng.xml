@@ -12,6 +12,7 @@
     <test name="Date Pickers">
         <classes>
             <class name="tests.date_pickers.BootstrapDatePickerTests">Bootstrap Date Picker Tests</class>
+            <class name="tests.date_pickers.JQueryDatePickerTests">JQuery Date Picker Tests</class>
         </classes>
     </test>
     <test name="Tables">

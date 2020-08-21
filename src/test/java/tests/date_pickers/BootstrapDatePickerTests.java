@@ -4,6 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.datepickers.BootstrapDatePickerPage;
+import util.Months;
 import util.SingletonDriver;
 import util.UtilMethods;
 
@@ -122,18 +123,5 @@ public class BootstrapDatePickerTests {
         SingletonDriver.close();
     }
 
-    public enum Months {
-        Jan,
-        Feb,
-        Mar,
-        Apr,
-        May,
-        Jun,
-        Jul,
-        Aug,
-        Sep,
-        Oct,
-        Nov,
-        Dec
-    }
+
 }
