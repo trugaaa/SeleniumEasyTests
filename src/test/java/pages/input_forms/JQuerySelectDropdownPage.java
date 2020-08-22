@@ -68,17 +68,15 @@ public class JQuerySelectDropdownPage {
     }
 
     public void selectMultipleStates(HashMap<String, String> stateMap) {
-        SingletonDriver.waitAndFindElement(selectStateMultipleComboboxSelector).click();
+        SingletonDriver.ajaxElementWait(selectStateMultipleComboboxSelector).click();
         stateMap.forEach((hint, state) -> {
-            SingletonDriver.waitAndFindElement(selectStateMultipleInputFieldSelector).sendKeys(hint);
-            SingletonDriver.waitAndFindElement(getMultipleElementSelector(state)).click();
+            SingletonDriver.ajaxElementWait(selectStateMultipleInputFieldSelector).sendKeys(hint);
+            SingletonDriver.ajaxElementWait(getMultipleElementSelector(state)).click();
         });
     }
 
     public void uncheckElements(HashMap<String, String> expectedSelected) {
-        expectedSelected.forEach((k, v) -> {
-            SingletonDriver.waitAndFindElement(unCheckCheckedStateSelector(v)).click();
-        });
+        expectedSelected.forEach((k, v) -> SingletonDriver.ajaxElementWait(unCheckCheckedStateSelector(v)).click());
     }
 
     public void selectDropDownWithCategory(String category, String element) {
@@ -101,9 +99,7 @@ public class JQuerySelectDropdownPage {
     public Boolean areAllElementsSelected(HashMap<String, String> expectedSelected) {
         ArrayList<String> expectedSelectedValues = new ArrayList<>();
         //<span> symbol adding
-        expectedSelected.forEach((k, v) -> {
-            expectedSelectedValues.add(unCheckSymbol + v);
-        });
+        expectedSelected.forEach((k, v) -> expectedSelectedValues.add(unCheckSymbol + v));
         List<String> actualSelected = getSelectedValues();
         actualSelected.sort(String.CASE_INSENSITIVE_ORDER);
         expectedSelectedValues.sort(String.CASE_INSENSITIVE_ORDER);
