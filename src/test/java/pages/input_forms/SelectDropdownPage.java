@@ -43,7 +43,7 @@ public class SelectDropdownPage {
     /*
     Elements
      */
-    Select multiDropdown;
+    Select selectStateDropdown;
 
     /*
      * Actions
@@ -57,12 +57,13 @@ public class SelectDropdownPage {
         SingletonDriver.waitAndFindElement(selectSundaySelector).click();
     }
 
-    public void selectMultiValues(List<String> multiDropDownElementsToBeChecked) {
+    public void selectMultiValues(List<String> multiDropDownElementsToBeChecked) throws Exception {
         SingletonDriver.waitAndFindElement(multiValuesSelectDropdownSelector).click();
-        multiDropdown = new Select(SingletonDriver.waitAndFindElement(multiValuesSelectDropdownSelector));
-        for (String element : multiDropDownElementsToBeChecked) {
-            multiDropdown.selectByVisibleText(element);
-        }
+        selectStateDropdown = new Select(SingletonDriver.waitAndFindElement(multiValuesSelectDropdownSelector));
+        multiDropDownElementsToBeChecked.forEach(state -> selectStateDropdown.selectByVisibleText(state));
+
+        if (selectStateDropdown.getAllSelectedOptions().size() != multiDropDownElementsToBeChecked.size())
+            throw new Exception("Sizes of expected checked list and actual checked are not equal");
     }
 
     public void getFirstSelectedButtonClick() {
@@ -82,5 +83,9 @@ public class SelectDropdownPage {
 
     public String getResultMultiText() {
         return SingletonDriver.waitAndFindElement(getMultiSelectedResultTextSelector).getText();
+    }
+
+    public Boolean isMultiSelectStateSupported() {
+        return new Select(SingletonDriver.waitAndFindElement(multiValuesSelectDropdownSelector)).isMultiple();
     }
 }

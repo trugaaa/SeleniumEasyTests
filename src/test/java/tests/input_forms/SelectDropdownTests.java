@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class SelectDropdownTests {
     SelectDropdownPage selectDropdownPage;
@@ -27,14 +28,15 @@ public class SelectDropdownTests {
     }
 
     @Test
-    void selectMultiValuesGetAllSelected() {
+    void selectMultiValuesGetAllSelected() throws Exception {
+        assertTrue(selectDropdownPage.isMultiSelectStateSupported());
         selectDropdownPage.selectMultiValues(prepareStatesList());
         selectDropdownPage.getAllSelectedButtonClick();
         assertEquals(selectDropdownPage.getResultMultiText(), TestData.expectedMultiDropdownGetAllSelectedText);
     }
 
     @Test
-    void selectMultiValuesGetFirstSelected() {
+    void selectMultiValuesGetFirstSelected() throws Exception {
         selectDropdownPage.selectMultiValues(prepareStatesList());
         selectDropdownPage.getFirstSelectedButtonClick();
         assertEquals(selectDropdownPage.getResultMultiText(), TestData.expectedMultiDropdownGetFirstSelectedText);
