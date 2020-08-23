@@ -40,6 +40,8 @@ public class TestData {
     public final static String ajaxProcessing = "Ajax Request is Processing!";
 
     /*
-    Bootstrap Date Picker
+    Table Search Page
      */
+    public final static String noTableElementsFound = "No results found";
+    public final static String noFilteredTableElementFound = "No result found";
 }

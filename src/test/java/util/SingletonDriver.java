@@ -82,6 +82,11 @@ public class SingletonDriver {
         return waitAndFindElement(selector);
     }
 
+    public static List<WebElement> ajaxElementsWait(By selector) {
+        waitForAjax();
+        return waitAndFindElements(selector);
+    }
+
     public static WebElement waitAndFindElement(By selector) {
         //Implicit wait for SECONDS_ELEMENT_WAIT seconds
         driver.manage().timeouts().implicitlyWait(SECONDS_LONG_WAIT, TimeUnit.SECONDS);
