@@ -18,6 +18,7 @@
     <test name="Tables">
         <classes>
             <class name="tests.table.TablePaginationTests">Table Pagination Tests</class>
+            <class name="tests.table.TableSearchTests">Table Search Tests</class>
         </classes>
     </test>
 </suite>
