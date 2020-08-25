@@ -2,7 +2,9 @@ package util;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,9 +28,13 @@ public class SingletonDriver {
 
 
     public static WebDriver init(String url) {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--allow-insecure-localhost");
+        chromeOptions.addArguments("--ignore-certificate-errors");
+
         if (driver == null) {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(chromeOptions);
             driverWait = new WebDriverWait(driver, 30);
             driver.get(url);
         }
