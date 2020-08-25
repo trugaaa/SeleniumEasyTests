@@ -14,7 +14,7 @@ public class SingletonDriver {
     private SingletonDriver() {
     }
 
-    public static synchronized WebDriver init(String url) {
+    public static synchronized SingletonDriver init(String url) {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--allow-insecure-localhost");
         chromeOptions.addArguments("--ignore-certificate-errors");
@@ -24,7 +24,7 @@ public class SingletonDriver {
             driver = new ChromeDriver(chromeOptions);
             driver.get(url);
         }
-        return driver;
+        return new SingletonDriver();
     }
 
     public static void destroy() {
