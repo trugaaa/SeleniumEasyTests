@@ -4,7 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.table.TablePaginationPage;
-import util.SingletonDriver;
+import base.SingletonDriver;
 
 import static org.testng.Assert.assertTrue;
 
@@ -45,7 +45,7 @@ public class TablePaginationTests {
 
     @AfterMethod
     void dispose() {
-        SingletonDriver.close();
+        SingletonDriver.destroy();
     }
 
 }

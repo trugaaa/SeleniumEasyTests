@@ -2,13 +2,14 @@ package pages.table;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import util.SingletonDriver;
+import base.SingletonDriver;
 import util.TestData;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.FileAssert.fail;
+import static base.WebElementExtendedMethods.*;
 
 public class TableSearchPage {
     private final static String TABLE_SEARCH_URL = "https://www.seleniumeasy.com/test/table-search-filter-demo.html";
@@ -34,9 +35,9 @@ public class TableSearchPage {
      */
     public List<SingleSearchTableRow> searchByAllFields(String searchString) {
         ArrayList<SingleSearchTableRow> allSingleSearchTableRows = new ArrayList<>();
-        SingletonDriver.waitAndFindElement(filterTaskAssigneeStatusSearchSelector).click();
-        SingletonDriver.waitAndFindElement(filterTaskAssigneeStatusSearchSelector).sendKeys(searchString);
-        List<WebElement> tableRowsCells = SingletonDriver.ajaxElementsWait(taskTableCellSelector);
+        waitAndFindElement(filterTaskAssigneeStatusSearchSelector).click();
+        waitAndFindElement(filterTaskAssigneeStatusSearchSelector).sendKeys(searchString);
+        List<WebElement> tableRowsCells = ajaxElementsWait(taskTableCellSelector);
         if (!isElementNotPresent()) {
             for (int i = 0; i < tableRowsCells.size(); i += 4) {
                 allSingleSearchTableRows.add(new SingleSearchTableRow(tableRowsCells.get(i).getText(),
@@ -49,13 +50,13 @@ public class TableSearchPage {
     }
 
     private void filterButtonClick() {
-        SingletonDriver.waitAndFindElement(filterButtonSelector).click();
+        waitAndFindElement(filterButtonSelector).click();
     }
 
     private List<FilterTableRow> getFilteredValues() {
         ArrayList<FilterTableRow> filteredTableRows = new ArrayList<>();
         if (isFilteredElementsFound()) {
-            List<WebElement> filteredCells = SingletonDriver.ajaxElementsWait(filterTableCellSelector);
+            List<WebElement> filteredCells = ajaxElementsWait(filterTableCellSelector);
             for (int i = 0; i < filteredCells.size(); i += 4) {
                 filteredTableRows.add(new FilterTableRow(filteredCells.get(i).getText(),
                         filteredCells.get(i + 1).getText(),
@@ -68,26 +69,26 @@ public class TableSearchPage {
 
     public List<FilterTableRow> filterById(int id) {
         filterButtonClick();
-        SingletonDriver.waitAndFindElement(filterByIdInputSelector).sendKeys(String.valueOf(id));
+        waitAndFindElement(filterByIdInputSelector).sendKeys(String.valueOf(id));
         if (getFilteredValues().size() > 1) fail();
         return getFilteredValues();
     }
 
     public List<FilterTableRow> filterByUsername(String username) {
         filterButtonClick();
-        SingletonDriver.waitAndFindElement(filterByUsernameInputSelector).sendKeys(String.valueOf(username));
+        waitAndFindElement(filterByUsernameInputSelector).sendKeys(String.valueOf(username));
         return getFilteredValues();
     }
 
     public List<FilterTableRow> filterByFirstName(String firstName) {
         filterButtonClick();
-        SingletonDriver.waitAndFindElement(filterByFirstNameInputSelector).sendKeys(String.valueOf(firstName));
+        waitAndFindElement(filterByFirstNameInputSelector).sendKeys(String.valueOf(firstName));
         return getFilteredValues();
     }
 
     public List<FilterTableRow> filterBySecondName(String secondName) {
         filterButtonClick();
-        SingletonDriver.waitAndFindElement(filterBySecondNameInputSelector).sendKeys(String.valueOf(secondName));
+        waitAndFindElement(filterBySecondNameInputSelector).sendKeys(String.valueOf(secondName));
         return getFilteredValues();
     }
 
@@ -106,11 +107,11 @@ public class TableSearchPage {
     }
 
     public Boolean isElementNotPresent() {
-        return SingletonDriver.ajaxElementWait(taskTableCellSelector).getText().equals(TestData.noTableElementsFound);
+        return ajaxElementWait(taskTableCellSelector).getText().equals(TestData.noTableElementsFound);
     }
 
     public Boolean isFilteredElementsFound() {
-        return !SingletonDriver.ajaxElementWait(filterTableCellSelector).getText().equals(TestData.noFilteredTableElementFound);
+        return !ajaxElementWait(filterTableCellSelector).getText().equals(TestData.noFilteredTableElementFound);
     }
 
     public Boolean isElementsFilteredById(List<FilterTableRow> rows, int id) {

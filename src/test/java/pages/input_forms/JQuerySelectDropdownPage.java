@@ -3,12 +3,14 @@ package pages.input_forms;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import util.SingletonDriver;
-import util.WebElementExtendedMethods;
+import base.SingletonDriver;
+import base.WebElementExtendedMethods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import static base.WebElementExtendedMethods.*;
 
 public class JQuerySelectDropdownPage {
     private final String JQUERY_DROPDOWN_SELECT_URL = "https://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html";
@@ -55,44 +57,44 @@ public class JQuerySelectDropdownPage {
     Actions
      */
     public void selectWithNotSelectable(String hint, String fullTerritory) {
-        SingletonDriver.waitAndFindElement(selectionWithNotSelectableItemsSelector).click();
-        SingletonDriver.waitAndFindElement(selectionWithNotSelectableInputSelector).sendKeys(hint);
-        SingletonDriver.waitAndFindElement(getTerritory(fullTerritory)).click();
+        waitAndFindElement(selectionWithNotSelectableItemsSelector).click();
+        waitAndFindElement(selectionWithNotSelectableInputSelector).sendKeys(hint);
+        waitAndFindElement(getTerritory(fullTerritory)).click();
     }
 
     public void selectCountry(String hint, String country) {
-        SingletonDriver.waitAndFindElement(selectCountryComboboxSelector).click();
-        SingletonDriver.waitAndFindElement(selectCountryInputFieldSelector).click();
-        SingletonDriver.waitAndFindElement(selectCountryInputFieldSelector).sendKeys(hint);
-        SingletonDriver.ajaxElementWait(getCountryListElementSelector(country)).click();
+        waitAndFindElement(selectCountryComboboxSelector).click();
+        waitAndFindElement(selectCountryInputFieldSelector).click();
+        waitAndFindElement(selectCountryInputFieldSelector).sendKeys(hint);
+        ajaxElementWait(getCountryListElementSelector(country)).click();
     }
 
     public void selectMultipleStates(HashMap<String, String> stateMap) {
-        SingletonDriver.ajaxElementWait(selectStateMultipleComboboxSelector).click();
+        ajaxElementWait(selectStateMultipleComboboxSelector).click();
         stateMap.forEach((hint, state) -> {
-            SingletonDriver.ajaxElementWait(selectStateMultipleInputFieldSelector).sendKeys(hint);
-            SingletonDriver.ajaxElementWait(getMultipleElementSelector(state)).click();
+            ajaxElementWait(selectStateMultipleInputFieldSelector).sendKeys(hint);
+            ajaxElementWait(getMultipleElementSelector(state)).click();
         });
     }
 
     public void uncheckElements(HashMap<String, String> expectedSelected) {
-        expectedSelected.forEach((k, v) -> SingletonDriver.ajaxElementWait(unCheckCheckedStateSelector(v)).click());
+        expectedSelected.forEach((k, v) -> ajaxElementWait(unCheckCheckedStateSelector(v)).click());
     }
 
     public void selectDropDownWithCategory(String category, String element) {
-        SingletonDriver.waitAndFindElement(selectFileDropdownSelector).click();
-        SingletonDriver.waitAndFindElement(getElementWithCategory(category, element)).click();
+        waitAndFindElement(selectFileDropdownSelector).click();
+        waitAndFindElement(getElementWithCategory(category, element)).click();
     }
 
     /*
     Verifications
      */
     public String getSelectedCountry() {
-        return SingletonDriver.waitAndFindElement(selectCountryComboboxSelector).getText();
+        return waitAndFindElement(selectCountryComboboxSelector).getText();
     }
 
     public List<String> getSelectedValues() {
-        List<WebElement> selectedElements = SingletonDriver.waitAndFindElements(selectedElementsMultipleStatesSelector);
+        List<WebElement> selectedElements = waitAndFindElements(selectedElementsMultipleStatesSelector);
         return WebElementExtendedMethods.getElementsText(selectedElements);
     }
 
@@ -107,11 +109,11 @@ public class JQuerySelectDropdownPage {
     }
 
     public String getSelectedElementWithCategory() {
-        Select select = new Select(SingletonDriver.waitAndFindElement(selectFileDropdownSelector));
+        Select select = new Select(waitAndFindElement(selectFileDropdownSelector));
         return select.getFirstSelectedOption().getText();
     }
 
     public String getSelectedTerritory() {
-        return WebElementExtendedMethods.getElementTitle(selectedElementWithDropdownSelector);
+        return getElementTitle(selectedElementWithDropdownSelector);
     }
 }

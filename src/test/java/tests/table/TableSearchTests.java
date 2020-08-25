@@ -4,7 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.table.TableSearchPage;
-import util.SingletonDriver;
+import base.SingletonDriver;
 
 import java.util.List;
 
@@ -78,6 +78,6 @@ public class TableSearchTests {
 
     @AfterMethod
     void dispose() {
-        SingletonDriver.close();
+        SingletonDriver.destroy();
     }
 }

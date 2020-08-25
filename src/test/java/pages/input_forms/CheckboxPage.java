@@ -1,9 +1,11 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import util.SingletonDriver;
+import base.SingletonDriver;
 import util.TestData;
-import util.WebElementExtendedMethods;
+import base.WebElementExtendedMethods;
+
+import static base.WebElementExtendedMethods.waitAndFindElement;
 
 
 public class CheckboxPage {
@@ -39,20 +41,20 @@ public class CheckboxPage {
      * Actions
      */
     public void checkSingleCheckboxClick() {
-        SingletonDriver.waitAndFindElement(checkBoxLocator).click();
+        waitAndFindElement(checkBoxLocator).click();
 
     }
 
     public String getCheckboxResultText() {
-        return SingletonDriver.waitAndFindElement(singleCheckboxResultMessageLocator).getText();
+        return waitAndFindElement(singleCheckboxResultMessageLocator).getText();
     }
 
     public void checkUncheckButtonClick() {
-        SingletonDriver.waitAndFindElement(checkUncheckAllButtonLocator).click();
+        waitAndFindElement(checkUncheckAllButtonLocator).click();
     }
 
     public void checkFirstOption() {
-        SingletonDriver.waitAndFindElement(option1Locator).click();
+        waitAndFindElement(option1Locator).click();
     }
 
     /*

@@ -1,7 +1,9 @@
 package pages.table;
 
 import org.openqa.selenium.By;
-import util.SingletonDriver;
+import base.SingletonDriver;
+
+import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class TablePaginationPage {
     private final String TABLE_PAGINATION_URL = "https://www.seleniumeasy.com/test/table-pagination-demo.html";
@@ -17,7 +19,7 @@ public class TablePaginationPage {
     private final By nextPageButtonSelector = new By.ByCssSelector("#myPager>li>.next_link");
 
     private Boolean isActivePage(int page) {
-        return SingletonDriver.waitAndFindElement(new By.ByXPath(String.format("//ul[@id='myPager']/li/a[text()='%s']/parent::li", page)))
+        return waitAndFindElement(new By.ByXPath(String.format("//ul[@id='myPager']/li/a[text()='%s']/parent::li", page)))
                 .getAttribute("class").equals("active");
     }
 
@@ -25,26 +27,26 @@ public class TablePaginationPage {
     Actions
      */
     public void clickNextButton() {
-        SingletonDriver.waitAndFindElement(nextPageButtonSelector).click();
+        waitAndFindElement(nextPageButtonSelector).click();
     }
 
     public void clickBackButton() {
-        SingletonDriver.waitAndFindElement(prevPageButtonSelector).click();
+        waitAndFindElement(prevPageButtonSelector).click();
     }
 
     public boolean isFirstPageSelected() {
         return isActivePage(1) && !isActivePage(2) && !isActivePage(3)
-                && SingletonDriver.waitAndFindElement(nextPageButtonSelector).isDisplayed();
+                && waitAndFindElement(nextPageButtonSelector).isDisplayed();
     }
 
     public boolean isSecondPageSelected() {
         return !isActivePage(1) && isActivePage(2) && !isActivePage(3)
-                && SingletonDriver.waitAndFindElement(prevPageButtonSelector).isDisplayed()
-                && SingletonDriver.waitAndFindElement(nextPageButtonSelector).isDisplayed();
+                && waitAndFindElement(prevPageButtonSelector).isDisplayed()
+                && waitAndFindElement(nextPageButtonSelector).isDisplayed();
     }
 
     public boolean isThirdPageSelected() {
         return !isActivePage(1) && !isActivePage(2) && isActivePage(3)
-                && SingletonDriver.waitAndFindElement(prevPageButtonSelector).isDisplayed();
+                && waitAndFindElement(prevPageButtonSelector).isDisplayed();
     }
 }

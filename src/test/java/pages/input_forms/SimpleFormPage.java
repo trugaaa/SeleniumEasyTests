@@ -1,7 +1,9 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import util.SingletonDriver;
+import base.SingletonDriver;
+
+import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class SimpleFormPage {
     public final static String INPUT_FORMS_SIMPLE_FORM_URL = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
@@ -36,8 +38,8 @@ public class SimpleFormPage {
      * Actions
      */
     public void writeUserMessage(String message) {
-        SingletonDriver.waitAndFindElement(userMessageLocator).sendKeys(message);
-        SingletonDriver.waitAndFindElement(userMessageButtonLocator).click();
+        waitAndFindElement(userMessageLocator).sendKeys(message);
+        waitAndFindElement(userMessageButtonLocator).click();
     }
 
     public void writeAAndB(int a, int b) {
@@ -46,11 +48,11 @@ public class SimpleFormPage {
     }
 
     public void writeA(int a) {
-        SingletonDriver.waitAndFindElement(aEnterFieldLocator).sendKeys(String.valueOf(a));
+        waitAndFindElement(aEnterFieldLocator).sendKeys(String.valueOf(a));
     }
 
     public void writeB(int b) {
-        SingletonDriver.waitAndFindElement(bEnterFieldLocator).sendKeys(String.valueOf(b));
+        waitAndFindElement(bEnterFieldLocator).sendKeys(String.valueOf(b));
     }
 
 
@@ -58,11 +60,11 @@ public class SimpleFormPage {
      * Verifications
      */
     public String getUserWroteResultMessage() {
-        return SingletonDriver.waitAndFindElement(userDisplayTextLocator).getText();
+        return waitAndFindElement(userDisplayTextLocator).getText();
     }
 
     public String getValueOfSumResult() {
-        SingletonDriver.waitAndFindElement(sumResultButtonLocator).click();
-        return SingletonDriver.waitAndFindElement(sumResultLocator).getText();
+        waitAndFindElement(sumResultButtonLocator).click();
+        return waitAndFindElement(sumResultLocator).getText();
     }
 }

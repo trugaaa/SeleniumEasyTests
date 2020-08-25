@@ -1,8 +1,11 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import util.SingletonDriver;
-import util.WebElementExtendedMethods;
+import base.SingletonDriver;
+import base.WebElementExtendedMethods;
+
+import static base.WebElementExtendedMethods.ajaxElementWait;
+import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class AjaxFormPage {
     private final String AJAX_FORM_URL = "https://www.seleniumeasy.com/test/ajax-form-submit-demo.html";
@@ -24,15 +27,15 @@ public class AjaxFormPage {
     Actions
      */
     public void writeTitle(String title) {
-        SingletonDriver.waitAndFindElement(nameFieldSelector).sendKeys(title);
+        waitAndFindElement(nameFieldSelector).sendKeys(title);
     }
 
     public void writeComment(String comment) {
-        SingletonDriver.waitAndFindElement(commentFieldSelector).sendKeys(comment);
+        waitAndFindElement(commentFieldSelector).sendKeys(comment);
     }
 
     public void submitButtonClick() {
-        SingletonDriver.waitAndFindElement(submitButtonSelector).click();
+        waitAndFindElement(submitButtonSelector).click();
     }
 
     public void writeTitleAndComment(String title, String comment) {
@@ -49,16 +52,16 @@ public class AjaxFormPage {
     }
 
     public String isAjaxProcessingGetText() {
-        return SingletonDriver.waitAndFindElement(resultSubmitMessageSelector).getText();
+        return waitAndFindElement(resultSubmitMessageSelector).getText();
     }
 
 
     public String isAjaxFormSuccessful() {
-        return SingletonDriver.ajaxElementWait(resultSubmitMessageSelector).getText();
+        return ajaxElementWait(resultSubmitMessageSelector).getText();
     }
 
     public Boolean isNecessaryNameShown() {
-        return SingletonDriver.ajaxElementWait(necessaryNameSymbolSelector).isDisplayed();
+        return ajaxElementWait(necessaryNameSymbolSelector).isDisplayed();
     }
 
 

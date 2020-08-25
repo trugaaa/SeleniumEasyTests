@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.datepickers.BootstrapDatePickerPage;
 import util.Months;
-import util.SingletonDriver;
+import base.SingletonDriver;
 import util.UtilMethods;
 
 import static org.testng.Assert.*;
@@ -120,7 +120,7 @@ public class BootstrapDatePickerTests {
 
     @AfterMethod
     void dispose() {
-        SingletonDriver.close();
+        SingletonDriver.destroy();
     }
 
 

@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.datepickers.JQueryDatePickerPage;
 import util.Months;
-import util.SingletonDriver;
+import base.SingletonDriver;
 
 import static org.testng.Assert.assertEquals;
 
@@ -59,6 +59,6 @@ public class JQueryDatePickerTests {
 
     @AfterMethod
     public void dispose() {
-        SingletonDriver.close();
+        SingletonDriver.destroy();
     }
 }

@@ -3,8 +3,11 @@ package pages.datepickers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import util.Months;
-import util.SingletonDriver;
-import util.WebElementExtendedMethods;
+import base.SingletonDriver;
+import base.WebElementExtendedMethods;
+
+import static base.WebElementExtendedMethods.ajaxElementWait;
+import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class JQueryDatePickerPage {
     private final String JQUERY_DATE_PICKER_URL = "https://www.seleniumeasy.com/test/jquery-date-picker-demo.html";
@@ -31,38 +34,38 @@ public class JQueryDatePickerPage {
     Actions
      */
     public void fromDateFieldClick() {
-        SingletonDriver.ajaxElementWait(fromDateSelector).click();
+        ajaxElementWait(fromDateSelector).click();
     }
 
     public void toDateFieldClick() {
-        SingletonDriver.ajaxElementWait(toDateSelector).click();
+        ajaxElementWait(toDateSelector).click();
     }
 
     public void nextMonthSelect() {
-        SingletonDriver.waitAndFindElement(nextMonthCalendarLinkSelector).click();
+        waitAndFindElement(nextMonthCalendarLinkSelector).click();
     }
 
     public void prevMonthSelect() {
-        SingletonDriver.waitAndFindElement(prevMonthCalendarLinkSelector).click();
+        waitAndFindElement(prevMonthCalendarLinkSelector).click();
     }
 
     private void selectMonth(Months month) {
-        Select monthSelect = new Select(SingletonDriver.waitAndFindElement(selectMonthSelector));
+        Select monthSelect = new Select(waitAndFindElement(selectMonthSelector));
         if (!monthSelect.getFirstSelectedOption().getText().equals(month.toString())) {
-            SingletonDriver.waitAndFindElement(selectMonthSelector).click();
+            waitAndFindElement(selectMonthSelector).click();
             monthSelect.selectByVisibleText(month.toString());
         }
     }
 
     private void selectYear(int year) {
-        if (Integer.parseInt(SingletonDriver.waitAndFindElement(selectYearSelector).getText()) != year) {
+        if (Integer.parseInt(waitAndFindElement(selectYearSelector).getText()) != year) {
             //Can be looped forever if start year > finish year
-            if (year < Integer.parseInt(SingletonDriver.waitAndFindElement(selectYearSelector).getText())) {
-                while (Integer.parseInt(SingletonDriver.waitAndFindElement(selectYearSelector).getText()) != year) {
+            if (year < Integer.parseInt(waitAndFindElement(selectYearSelector).getText())) {
+                while (Integer.parseInt(waitAndFindElement(selectYearSelector).getText()) != year) {
                     prevMonthSelect();
                 }
             } else {
-                while (Integer.parseInt(SingletonDriver.waitAndFindElement(selectYearSelector).getText()) != year) {
+                while (Integer.parseInt(waitAndFindElement(selectYearSelector).getText()) != year) {
                     nextMonthSelect();
                 }
             }
@@ -70,7 +73,7 @@ public class JQueryDatePickerPage {
     }
 
     private void selectDate(int date) {
-        SingletonDriver.waitAndFindElement(dateSelector(date)).click();
+        waitAndFindElement(dateSelector(date)).click();
     }
 
     public void selectDate(int date, Months month, int year) {

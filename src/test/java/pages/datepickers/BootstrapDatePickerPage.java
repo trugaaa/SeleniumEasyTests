@@ -2,9 +2,11 @@ package pages.datepickers;
 
 import org.openqa.selenium.By;
 import util.Months;
-import util.SingletonDriver;
+import base.SingletonDriver;
 import util.UtilMethods;
-import util.WebElementExtendedMethods;
+import base.WebElementExtendedMethods;
+
+import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class BootstrapDatePickerPage {
     private final String BOOTSTRAP_DATE_PICKER_URL = "https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html";
@@ -40,21 +42,21 @@ public class BootstrapDatePickerPage {
     Actions
      */
     public void soloDatePickerClick() {
-        SingletonDriver.waitAndFindElement(soloDatePickerSelector).click();
+        waitAndFindElement(soloDatePickerSelector).click();
     }
 
     public void currentDateSelect() {
         soloDatePickerClick();
-        SingletonDriver.waitAndFindElement(currentDateSelector).click();
+        waitAndFindElement(currentDateSelector).click();
     }
 
     public void clearDateSelect() {
         soloDatePickerClick();
-        SingletonDriver.waitAndFindElement(clearDateSelector).click();
+        waitAndFindElement(clearDateSelector).click();
     }
 
     private void mainHeaderSoloDatePickerClick(By selector) {
-        SingletonDriver.waitAndFindElement(selector).click();
+        waitAndFindElement(selector).click();
     }
 
     public void yearSelectionDataPickerOpen() {
@@ -63,21 +65,21 @@ public class BootstrapDatePickerPage {
     }
 
     public void selectDate(int year, Months month, int day) {
-        SingletonDriver.waitAndFindElement(getYearSelector(year)).click();
+        waitAndFindElement(getYearSelector(year)).click();
         if (UtilMethods.getCurrentYear() >= year) {
             if (!WebElementExtendedMethods.getClass(getMonthSelector(month)).equals("month disabled")) {
-                SingletonDriver.waitAndFindElement(getMonthSelector(month)).click();
-                SingletonDriver.waitAndFindElement(getDaySelector(day)).click();
+                waitAndFindElement(getMonthSelector(month)).click();
+                waitAndFindElement(getDaySelector(day)).click();
             }
         }
     }
 
     public void startDateClick() {
-        SingletonDriver.waitAndFindElement(startDateSelector).click();
+        waitAndFindElement(startDateSelector).click();
     }
 
     public void endDateClick() {
-        SingletonDriver.waitAndFindElement(finishDateSelector).click();
+        waitAndFindElement(finishDateSelector).click();
     }
 
     /*
