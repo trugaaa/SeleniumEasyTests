@@ -6,16 +6,11 @@ import org.testng.annotations.Test;
 import pages.table.TableSearchPage;
 import base.SingletonDriver;
 
-import java.util.List;
-
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class TableSearchTests {
     TableSearchPage tableSearchPage;
     String stringToSearch;
-    List<TableSearchPage.SingleSearchTableRow> foundRows;
-    List<TableSearchPage.FilterTableRow> filteredRows;
 
     @BeforeMethod
     void init() {
@@ -25,55 +20,55 @@ public class TableSearchTests {
     @Test
     void searchThreeRowsByAllFieldsFound() {
         stringToSearch = "Joh";
-        foundRows = tableSearchPage.searchByAllFields(stringToSearch);
-        assertTrue(tableSearchPage.isAllRowsContainsString(foundRows, stringToSearch));
+        tableSearchPage.searchByAllFields(stringToSearch);
+        assertTrue(tableSearchPage.isRowContainFilterString(stringToSearch));
     }
 
     @Test
     void searchTwoRowsByAllFieldsFound() {
         stringToSearch = "an";
-        foundRows = tableSearchPage.searchByAllFields(stringToSearch);
-        assertTrue(tableSearchPage.isAllRowsContainsString(foundRows, stringToSearch));
+        tableSearchPage.searchByAllFields(stringToSearch);
+        assertTrue(tableSearchPage.isRowContainFilterString(stringToSearch));
     }
 
     @Test
     void noElementsByAllFieldsFound() {
         tableSearchPage.searchByAllFields("Andratanchik");
-        assertTrue(tableSearchPage.isElementNotPresent());
+        assertTrue(tableSearchPage.isTaskTableEmpty());
     }
 
     @Test
     void NoFilteredRowFound() {
         tableSearchPage.filterById(-1);
-        assertFalse(tableSearchPage.isFilteredElementsFound());
+        assertTrue(tableSearchPage.isFilteredElementsNotFound());
     }
 
     @Test
     void filterTableById() {
         int id = 1;
-        filteredRows = tableSearchPage.filterById(id);
-        assertTrue(tableSearchPage.isElementsFilteredById(filteredRows, id));
+        tableSearchPage.filterById(id);
+        assertTrue(tableSearchPage.isFilteredById(id));
     }
 
     @Test
     void filterTableByUsername() {
         stringToSearch = "m";
-        filteredRows = tableSearchPage.filterByUsername(stringToSearch);
-        assertTrue(tableSearchPage.isElementsFilteredByUsername(filteredRows, stringToSearch));
+        tableSearchPage.filterByUsername(stringToSearch);
+        assertTrue(tableSearchPage.isElementsFilteredByUsername(stringToSearch));
     }
 
     @Test
     void filterTableByFirstName() {
         stringToSearch = "an";
-        filteredRows = tableSearchPage.filterByFirstName(stringToSearch);
-        assertTrue(tableSearchPage.isElementsFilteredByFirstname(filteredRows, stringToSearch));
+        tableSearchPage.filterByFirstName(stringToSearch);
+        assertTrue(tableSearchPage.isElementsFilteredByFirstName(stringToSearch));
     }
 
     @Test
     void filterTableBySecondName() {
         stringToSearch = "an";
-        filteredRows = tableSearchPage.filterBySecondName(stringToSearch);
-        assertTrue(tableSearchPage.isElementsFilteredBySecondName(filteredRows, stringToSearch));
+        tableSearchPage.filterBySecondName(stringToSearch);
+        assertTrue(tableSearchPage.isElementsFilteredBySecondName(stringToSearch));
     }
 
     @AfterMethod
