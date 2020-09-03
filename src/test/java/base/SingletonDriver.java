@@ -17,7 +17,7 @@ public class SingletonDriver {
     }
 
     private static synchronized SingletonDriver init() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver(BrowserOptions.getDefaultChromeOptions());
         return new SingletonDriver();
     }
