@@ -3,35 +3,34 @@ package pages.input_forms;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import base.SingletonDriver;
 import base.WebElementExtendedMethods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static base.JSAwaits.ajaxElementWait;
 import static base.WebElementExtendedMethods.*;
 
 public class JQuerySelectDropdownPage {
-    private final String JQUERY_DROPDOWN_SELECT_URL = "https://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html";
     private final String unCheckSymbol = "×";
 
     public JQuerySelectDropdownPage() {
-        SingletonDriver.init(JQUERY_DROPDOWN_SELECT_URL);
+        WebElementExtendedMethods.navigateTo("https://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html");
     }
 
     /*
     Selectors
      */
-    private final By selectCountryComboboxSelector = new By.ByXPath("//span[@class='selection']");
-    private final By selectCountryInputFieldSelector = new By.ByXPath("//span[@class='select2-search select2-search--dropdown']/input[@class='select2-search__field' and @type='search']");
-    private final By selectStateMultipleComboboxSelector = new By.ByXPath("//span[@class='select2-selection select2-selection--single']/parent::span[@class='selection']");
-    private final By selectStateMultipleInputFieldSelector = new By.ByXPath("//li[@class='select2-search select2-search--inline']/input[@class='select2-search__field' and @type='search']");
-    private final By selectedElementsMultipleStatesSelector = new By.ByXPath("//span[@class='selection']/span/ul[@class='select2-selection__rendered']/li");
-    private final By selectFileDropdownSelector = new By.ById("files");
-    private final By selectionWithNotSelectableItemsSelector = new By.ByXPath("(//span[@class='select2-selection__arrow'])[2]");
-    private final By selectionWithNotSelectableInputSelector = new By.ByXPath("(//input[@class='select2-search__field'])[2]");
-    private final By selectedElementWithDropdownSelector = new By.ByXPath("(//span[@class='select2-selection__arrow'])[2]/parent::span/span[@class='select2-selection__rendered']");
+    private final By selectCountryComboboxSelector = By.xpath("//span[@class='selection']");
+    private final By selectCountryInputFieldSelector = By.xpath("//span[@class='select2-search select2-search--dropdown']/input[@class='select2-search__field' and @type='search']");
+    private final By selectStateMultipleComboboxSelector = By.xpath("//span[@class='select2-selection select2-selection--single']/parent::span[@class='selection']");
+    private final By selectStateMultipleInputFieldSelector = By.xpath("//li[@class='select2-search select2-search--inline']/input[@class='select2-search__field' and @type='search']");
+    private final By selectedElementsMultipleStatesSelector = By.xpath("//span[@class='selection']/span/ul[@class='select2-selection__rendered']/li");
+    private final By selectFileDropdownSelector = By.id("files");
+    private final By selectionWithNotSelectableItemsSelector = By.xpath("(//span[@class='select2-selection__arrow'])[2]");
+    private final By selectionWithNotSelectableInputSelector = By.xpath("(//input[@class='select2-search__field'])[2]");
+    private final By selectedElementWithDropdownSelector = By.xpath("(//span[@class='select2-selection__arrow'])[2]/parent::span/span[@class='select2-selection__rendered']");
 
     private By unCheckCheckedStateSelector(String state) {
         return new By.ByXPath(String.format("//li[text()='%s']/span", state));

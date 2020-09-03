@@ -1,37 +1,25 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import base.SingletonDriver;
 
+import static base.WebElementExtendedMethods.navigateTo;
 import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class SimpleFormPage {
-    public final static String INPUT_FORMS_SIMPLE_FORM_URL = "https://www.seleniumeasy.com/test/basic-first-form-demo.html";
-
     public SimpleFormPage() {
-        SingletonDriver.init(INPUT_FORMS_SIMPLE_FORM_URL);
+        navigateTo("https://www.seleniumeasy.com/test/basic-first-form-demo.html");
     }
 
     /*
-     * String locators
-     */
-    private final String userMessageId = "user-message";
-    private final String userMessageConfirmButtonXpath = "//button[text()='Show Message']";
-    private final String userDisplayTextId = "display";
-    private final String aId = "sum1";
-    private final String bId = "sum2";
-    private final String sumButtonXpath = "//button[text()='Get Total']";
-    private final String sumResultId = "displayvalue";
-    /*
      * Locators
      */
-    By userMessageLocator = new By.ById(userMessageId);
-    By userMessageButtonLocator = new By.ByXPath(userMessageConfirmButtonXpath);
-    By userDisplayTextLocator = new By.ById(userDisplayTextId);
-    By aEnterFieldLocator = new By.ById(aId);
-    By bEnterFieldLocator = new By.ById(bId);
-    By sumResultButtonLocator = new By.ByXPath(sumButtonXpath);
-    By sumResultLocator = new By.ById(sumResultId);
+    By userMessageLocator = By.id("user-message");
+    By userMessageButtonLocator = By.xpath("//button[text()='Show Message']");
+    By userDisplayTextLocator = By.id("display");
+    By aEnterFieldLocator = By.id("sum1");
+    By bEnterFieldLocator = By.id("sum2");
+    By sumResultButtonLocator = By.xpath("//button[text()='Get Total']");
+    By sumResultLocator = By.id("displayvalue");
 
 
     /*

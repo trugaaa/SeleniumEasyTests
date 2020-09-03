@@ -1,27 +1,26 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import base.SingletonDriver;
 import base.WebElementExtendedMethods;
 
-import static base.WebElementExtendedMethods.ajaxElementWait;
+import static base.JSAwaits.ajaxElementWait;
 import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class AjaxFormPage {
-    private final String AJAX_FORM_URL = "https://www.seleniumeasy.com/test/ajax-form-submit-demo.html";
 
     public AjaxFormPage() {
-        SingletonDriver.init(AJAX_FORM_URL);
+        String AJAX_FORM_URL = "https://www.seleniumeasy.com/test/ajax-form-submit-demo.html";
+        WebElementExtendedMethods.navigateTo(AJAX_FORM_URL);
     }
 
     /*
      * Selectors
      */
-    private final By nameFieldSelector = new By.ById("title");
-    private final By commentFieldSelector = new By.ById("description");
-    private final By submitButtonSelector = new By.ById("btn-submit");
-    private final By necessaryNameSymbolSelector = new By.ByXPath("//span[@class='title-validation validation-error']");
-    private final By resultSubmitMessageSelector = new By.ById("submit-control");
+    private final By nameFieldSelector =  By.id("title");
+    private final By commentFieldSelector =  By.id("description");
+    private final By submitButtonSelector =  By.id("btn-submit");
+    private final By necessaryNameSymbolSelector =  By.xpath("//span[@class='title-validation validation-error']");
+    private final By resultSubmitMessageSelector =  By.id("submit-control");
 
     /*
     Actions

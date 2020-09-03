@@ -1,7 +1,6 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import base.SingletonDriver;
 import util.TestData;
 import base.WebElementExtendedMethods;
 
@@ -9,33 +8,20 @@ import static base.WebElementExtendedMethods.waitAndFindElement;
 
 
 public class CheckboxPage {
-    public final static String CHECKBOX_URL = "https://www.seleniumeasy.com/test/basic-checkbox-demo.html";
-
     public CheckboxPage() {
-        SingletonDriver.init(CHECKBOX_URL);
+        WebElementExtendedMethods.navigateTo("https://www.seleniumeasy.com/test/basic-checkbox-demo.html");
     }
-
-    /*
-     * String locators
-     */
-    private final String checkBoxId = "isAgeSelected";
-    private final String singleCheckboxResultMessageId = "txtAge";
-    private final String option1Xpath = "//label[text()='Option 1']/input";
-    private final String option2Xpath = "//label[text()='Option 2']/input";
-    private final String option3Xpath = "//label[text()='Option 3']/input";
-    private final String option4Xpath = "//label[text()='Option 4']/input";
-    private final String buttonCheckId = "check1";
 
     /*
      * Locators
      */
-    private final By checkBoxLocator = new By.ById(checkBoxId);
-    private final By singleCheckboxResultMessageLocator = new By.ById(singleCheckboxResultMessageId);
-    private final By option1Locator = new By.ByXPath(option1Xpath);
-    private final By option2Locator = new By.ByXPath(option2Xpath);
-    private final By option3Locator = new By.ByXPath(option3Xpath);
-    private final By option4Locator = new By.ByXPath(option4Xpath);
-    private final By checkUncheckAllButtonLocator = new By.ById(buttonCheckId);
+    private final By checkBoxLocator = By.id("isAgeSelected");
+    private final By singleCheckboxResultMessageLocator = By.id("txtAge");
+    private final By option1Locator = By.xpath("//label[text()='Option 1']/input");
+    private final By option2Locator = By.xpath("//label[text()='Option 2']/input");
+    private final By option3Locator = By.xpath("//label[text()='Option 3']/input");
+    private final By option4Locator = By.xpath("//label[text()='Option 4']/input");
+    private final By checkUncheckAllButtonLocator = By.id("check1");
 
     /*
      * Actions

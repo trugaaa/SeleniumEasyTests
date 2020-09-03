@@ -1,59 +1,28 @@
 package base;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+
+import static base.JSAwaits.ajaxElementWait;
 
 public class WebElementExtendedMethods {
-    private static final long SECONDS_LONG_WAIT = 10;
-    private static final long SECONDS_SHORT_WAIT = 1;
-
-    private static void waitForAjax() {
-        try {
-            WebDriverWait driverWait = new WebDriverWait(SingletonDriver.getDriver(), SECONDS_SHORT_WAIT);
-
-            ExpectedCondition<Boolean> expectation;
-            expectation = driverJs -> {
-
-                JavascriptExecutor js = (JavascriptExecutor) driverJs;
-                return js.executeScript("return((window.jQuery != null) && (jQuery.active === 0))").equals("true");
-            };
-            driverWait.until(expectation);
-        } catch (TimeoutException ignored) {
-        }
-    }
-
-
-    public static WebElement ajaxElementWait(By selector) {
-        waitForAjax();
-        return waitAndFindElement(selector);
-    }
-
-    public static List<WebElement> ajaxElementsWait(By selector) {
-        waitForAjax();
-        return waitAndFindElements(selector);
+    public static void navigateTo(String url) {
+        SingletonDriver.getDriver().get(url);
     }
 
     public static WebElement waitAndFindElement(By selector) {
         WebDriverWait driverWait = new WebDriverWait(SingletonDriver.getDriver(), 30);
-        //Implicit wait for SECONDS_ELEMENT_WAIT seconds
-        SingletonDriver.getDriver().manage().timeouts().implicitlyWait(SECONDS_LONG_WAIT, TimeUnit.SECONDS);
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(selector));
         return SingletonDriver.getDriver().findElement(selector);
     }
 
     public static List<WebElement> waitAndFindElements(By selector) {
         WebDriverWait driverWait = new WebDriverWait(SingletonDriver.getDriver(), 30);
-        //Implicit wait for SECONDS_ELEMENT_WAIT seconds
-        SingletonDriver.getDriver().manage().timeouts().implicitlyWait(SECONDS_LONG_WAIT, TimeUnit.SECONDS);
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(selector));
         return SingletonDriver.getDriver().findElements(selector);
     }

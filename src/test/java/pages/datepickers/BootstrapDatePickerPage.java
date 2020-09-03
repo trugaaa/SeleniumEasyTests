@@ -2,29 +2,28 @@ package pages.datepickers;
 
 import org.openqa.selenium.By;
 import util.Months;
-import base.SingletonDriver;
 import util.UtilMethods;
 import base.WebElementExtendedMethods;
 
 import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class BootstrapDatePickerPage {
-    private final String BOOTSTRAP_DATE_PICKER_URL = "https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html";
 
     public BootstrapDatePickerPage() {
-        SingletonDriver.init(BOOTSTRAP_DATE_PICKER_URL);
+        String BOOTSTRAP_DATE_PICKER_URL = "https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html";
+        WebElementExtendedMethods.navigateTo(BOOTSTRAP_DATE_PICKER_URL);
     }
 
     /*
     Selectors
      */
-    private final By soloDatePickerSelector = new By.ByXPath("//div[@class='input-group date']/input[@placeholder='dd/mm/yyyy']");
-    private final By currentDateSelector = new By.ByXPath("//tr/th[@class='today']");
-    private final By clearDateSelector = new By.ByXPath("//tr/th[@class='clear']");
-    private final By mainMonthsHeaderSoloDatePickerSelector = new By.ByXPath("//div[@class='datepicker-months']/table[@class='table-condensed']/thead/tr/th[@class='datepicker-switch']");
-    private final By mainDaysHeaderSoloDatePickerSelector = new By.ByXPath("//div[@class='datepicker-days']/table[@class='table-condensed']/thead/tr/th[@class='datepicker-switch']");
-    private final By startDateSelector = new By.ByXPath("//div[@id='datepicker']/input[@placeholder='Start date']");
-    private final By finishDateSelector = new By.ByXPath("//div[@id='datepicker']/input[@placeholder='End date']");
+    private final By soloDatePickerSelector = By.xpath("//div[@class='input-group date']/input[@placeholder='dd/mm/yyyy']");
+    private final By currentDateSelector = By.xpath("//tr/th[@class='today']");
+    private final By clearDateSelector = By.xpath("//tr/th[@class='clear']");
+    private final By mainMonthsHeaderSoloDatePickerSelector = By.xpath("//div[@class='datepicker-months']/table[@class='table-condensed']/thead/tr/th[@class='datepicker-switch']");
+    private final By mainDaysHeaderSoloDatePickerSelector = By.xpath("//div[@class='datepicker-days']/table[@class='table-condensed']/thead/tr/th[@class='datepicker-switch']");
+    private final By startDateSelector = By.xpath("//div[@id='datepicker']/input[@placeholder='Start date']");
+    private final By finishDateSelector = By.xpath("//div[@id='datepicker']/input[@placeholder='End date']");
 
     private By getYearSelector(int year) {
         return new By.ByXPath(String.format("//div[@class='datepicker-years']/table[@class='table-condensed']/tbody/tr/td/span[text()='%s']", year));

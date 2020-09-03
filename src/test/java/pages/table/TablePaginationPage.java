@@ -1,25 +1,24 @@
 package pages.table;
 
 import org.openqa.selenium.By;
-import base.SingletonDriver;
 
+import static base.WebElementExtendedMethods.navigateTo;
 import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class TablePaginationPage {
-    private final String TABLE_PAGINATION_URL = "https://www.seleniumeasy.com/test/table-pagination-demo.html";
 
     public TablePaginationPage() {
-        SingletonDriver.init(TABLE_PAGINATION_URL);
+        navigateTo("https://www.seleniumeasy.com/test/table-pagination-demo.html");
     }
 
     /*
     Selectors
      */
-    private final By prevPageButtonSelector = new By.ByCssSelector("#myPager>li>.prev_link");
-    private final By nextPageButtonSelector = new By.ByCssSelector("#myPager>li>.next_link");
+    private final By prevPageButtonSelector = By.cssSelector("#myPager>li>.prev_link");
+    private final By nextPageButtonSelector = By.cssSelector("#myPager>li>.next_link");
 
     private Boolean isActivePage(int page) {
-        return waitAndFindElement(new By.ByXPath(String.format("//ul[@id='myPager']/li/a[text()='%s']/parent::li", page)))
+        return waitAndFindElement(By.xpath(String.format("//ul[@id='myPager']/li/a[text()='%s']/parent::li", page)))
                 .getAttribute("class").equals("active");
     }
 

@@ -1,45 +1,31 @@
 package pages.input_forms;
 
+import base.WebElementExtendedMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
-import base.SingletonDriver;
-import util.TestData;
 
 import java.util.List;
 
 import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class SelectDropdownPage {
-    private final String SELECT_DROPDOWN_URL = "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html";
-
     public SelectDropdownPage() {
-        SingletonDriver.init(SELECT_DROPDOWN_URL);
+        WebElementExtendedMethods.navigateTo("https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
     }
-
-    /*
-     * String selectors
-     */
-    private final String selectADayId = "select-demo";
-    private final String sundayDropdownValueXpath = String.format("//select[@id='%s']/option[@value='%s']", selectADayId, TestData.sunday);
-    private final String sundayExpectedResultTextXpath = "//div[@class='panel-body']/p[@class='selected-value']";
-    private final String multiValuesSelectDropdownId = "multi-select";
-    private final String firstSelectedButtonId = "printMe";
-    private final String getAllSelectedButtonId = "printAll";
-    private final String getMultiSelectedResultTextXpath = "//div[@class='panel-body']/p[@class='getall-selected']";
 
     /*
      * Selectors
      */
-    private final By selectADaySelector = new By.ById(selectADayId);
-    private final By selectSundaySelector = new By.ByXPath(sundayDropdownValueXpath);
-    private final By sundayExpectedResultTextSelector = new By.ByXPath(sundayExpectedResultTextXpath);
-    private final By multiValuesSelectDropdownSelector = new By.ById(multiValuesSelectDropdownId);
-    private final By firstSelectedButtonSelector = new By.ById(firstSelectedButtonId);
-    private final By getAllSelectedButtonSelector = new By.ById(getAllSelectedButtonId);
-    private final By getMultiSelectedResultTextSelector = new By.ByXPath(getMultiSelectedResultTextXpath);
+    private final By selectADaySelector = By.id("select-demo");
+    private final By selectSundaySelector = By.xpath("//select[@id='select-demo']/option[@value='Sunday']");
+    private final By sundayExpectedResultTextSelector = By.xpath("//div[@class='panel-body']/p[@class='selected-value']");
+    private final By multiValuesSelectDropdownSelector = By.id("multi-select");
+    private final By firstSelectedButtonSelector = By.id("printMe");
+    private final By getAllSelectedButtonSelector = By.id("printAll");
+    private final By getMultiSelectedResultTextSelector = By.xpath("//div[@class='panel-body']/p[@class='getall-selected']");
 
     private By getSelectorOfState(String state) {
-        return new By.ByXPath(String.format("//select[@id='%s']/option[@value='%s']", multiValuesSelectDropdownId, state));
+        return new By.ByXPath(String.format("//select[@id='multi-select']/option[@value='%s']", state));
     }
 
     /*

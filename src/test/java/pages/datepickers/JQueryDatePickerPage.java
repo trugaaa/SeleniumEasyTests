@@ -3,31 +3,29 @@ package pages.datepickers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import util.Months;
-import base.SingletonDriver;
 import base.WebElementExtendedMethods;
 
-import static base.WebElementExtendedMethods.ajaxElementWait;
+import static base.JSAwaits.ajaxElementWait;
 import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class JQueryDatePickerPage {
-    private final String JQUERY_DATE_PICKER_URL = "https://www.seleniumeasy.com/test/jquery-date-picker-demo.html";
 
     public JQueryDatePickerPage() {
-        SingletonDriver.init(JQUERY_DATE_PICKER_URL);
+        WebElementExtendedMethods.navigateTo("https://www.seleniumeasy.com/test/jquery-date-picker-demo.html");
     }
 
     /*
     Selectors
      */
-    private final By fromDateSelector = new By.ByCssSelector("#from");
-    private final By toDateSelector = new By.ByCssSelector("#to");
-    private final By prevMonthCalendarLinkSelector = new By.ByCssSelector("#ui-datepicker-div>div>a[title='Prev']");
-    private final By nextMonthCalendarLinkSelector = new By.ByCssSelector("#ui-datepicker-div>div>a[title='Next']");
-    private final By selectMonthSelector = new By.ByCssSelector(".ui-datepicker-month");
-    private final By selectYearSelector = new By.ByCssSelector(".ui-datepicker-year");
+    private final By fromDateSelector = By.cssSelector("#from");
+    private final By toDateSelector = By.cssSelector("#to");
+    private final By prevMonthCalendarLinkSelector = By.cssSelector("#ui-datepicker-div>div>a[title='Prev']");
+    private final By nextMonthCalendarLinkSelector = By.cssSelector("#ui-datepicker-div>div>a[title='Next']");
+    private final By selectMonthSelector = By.cssSelector(".ui-datepicker-month");
+    private final By selectYearSelector = By.cssSelector(".ui-datepicker-year");
 
     private By dateSelector(int dayNumber) {
-        return new By.ByXPath(String.format("//tbody/tr/td/*[text()=%s]", dayNumber));
+        return By.xpath(String.format("//tbody/tr/td/*[text()=%s]", dayNumber));
     }
 
     /*

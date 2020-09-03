@@ -1,47 +1,29 @@
 package pages.input_forms;
 
 import org.openqa.selenium.By;
-import base.SingletonDriver;
 import base.WebElementExtendedMethods;
 
 import static base.WebElementExtendedMethods.waitAndFindElement;
 
 public class RadioButtonsPage {
-    public final static String RADIO_BUTTONS_URL = "https://www.seleniumeasy.com/test/basic-radiobutton-demo.html";
-
     public RadioButtonsPage() {
-        SingletonDriver.init(RADIO_BUTTONS_URL);
+        WebElementExtendedMethods.navigateTo("https://www.seleniumeasy.com/test/basic-radiobutton-demo.html");
     }
-
-    /*
-     * String selectors
-     */
-    private final String radioOptionMaleXpath = "//label[@class=\"radio-inline\"]/input[@value=\"Male\"]";
-    private final String radioOptionFemaleXpath = "//label[@class=\"radio-inline\"]/input[@value=\"Female\"]";
-    private final String radioOptionCheckButtonId = "buttoncheck";
-    private final String radioOptionResultTextXpath = "//div[@class='panel-body']/p[@class='radiobutton']";
-    private final String radioGroupMaleOptionXpath = "//input[@type='radio'][@value='Male'][@name='gender']";
-    private final String radioGroupFemaleOptionXpath = "//input[@type='radio'][@value='Female'][@name='gender']";
-    private final String radioGroupAge0_5OptionXpath = "//input[@name='ageGroup' and @value='0 - 5']";
-    private final String radioGroupAge5_15OptionXpath = "//input[@name='ageGroup' and @value='5 - 15']";
-    private final String radioGroupAge15_50OptionXpath = "//input[@name='ageGroup' and @value='15 - 50']";
-    private final String radioGroupResultButtonXpath = "//div[@class='panel-body']/button[@class='btn btn-default' and @type='button']";
-    private final String radioGroupResultTextXpath = "//div[@class='panel-body']/p[@class='groupradiobutton']";
-
+    
     /*
      * Selectors
      */
-    private final By radioOptionMaleSelector = new By.ByXPath(radioOptionMaleXpath);
-    private final By radioOptionFemaleSelector = new By.ByXPath(radioOptionFemaleXpath);
-    private final By radioOptionButtonSelector = new By.ById(radioOptionCheckButtonId);
-    private final By radioOptionResultTextSelector = new By.ByXPath(radioOptionResultTextXpath);
-    private final By radioGroupMaleOptionSelector = new By.ByXPath(radioGroupMaleOptionXpath);
-    private final By radioGroupFemaleOptionSelector = new By.ByXPath(radioGroupFemaleOptionXpath);
-    private final By radioGroupFirstAgeGroupSelector = new By.ByXPath(radioGroupAge0_5OptionXpath);
-    private final By radioGroupSecondAgeGroupSelector = new By.ByXPath(radioGroupAge5_15OptionXpath);
-    private final By radioGroupThirdAgeGroupSelector = new By.ByXPath(radioGroupAge15_50OptionXpath);
-    private final By radioGroupResultButtonSelector = new By.ByXPath(radioGroupResultButtonXpath);
-    private final By radioGroupResultTextSelector = new By.ByXPath(radioGroupResultTextXpath);
+    private final By radioOptionMaleSelector =  By.xpath("//label[@class=\"radio-inline\"]/input[@value=\"Male\"]");
+    private final By radioOptionFemaleSelector =  By.xpath("//label[@class=\"radio-inline\"]/input[@value=\"Female\"]");
+    private final By radioOptionButtonSelector =  By.id("buttoncheck");
+    private final By radioOptionResultTextSelector =  By.xpath("//div[@class='panel-body']/p[@class='radiobutton']");
+    private final By radioGroupMaleOptionSelector =  By.xpath("//input[@type='radio'][@value='Male'][@name='gender']");
+    private final By radioGroupFemaleOptionSelector =  By.xpath("//input[@type='radio'][@value='Female'][@name='gender']");
+    private final By radioGroupFirstAgeGroupSelector =  By.xpath("//input[@name='ageGroup' and @value='0 - 5']");
+    private final By radioGroupSecondAgeGroupSelector =  By.xpath("//input[@name='ageGroup' and @value='5 - 15']");
+    private final By radioGroupThirdAgeGroupSelector =  By.xpath("//input[@name='ageGroup' and @value='15 - 50']");
+    private final By radioGroupResultButtonSelector =  By.xpath("//div[@class='panel-body']/button[@class='btn btn-default' and @type='button']");
+    private final By radioGroupResultTextSelector =  By.xpath("//div[@class='panel-body']/p[@class='groupradiobutton']");
 
     /*
      * Actions

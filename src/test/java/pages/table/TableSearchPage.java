@@ -3,7 +3,6 @@ package pages.table;
 import base.WebElementExtendedMethods;
 import org.apache.commons.collections4.ListUtils;
 import org.openqa.selenium.By;
-import base.SingletonDriver;
 import org.openqa.selenium.WebElement;
 import util.TestData;
 
@@ -13,25 +12,24 @@ import java.util.stream.Collectors;
 import static base.WebElementExtendedMethods.*;
 
 public class TableSearchPage {
-    private final static String TABLE_SEARCH_URL = "https://www.seleniumeasy.com/test/table-search-filter-demo.html";
     private final static int TABLE_SEARCH_ALL_FIELDS_COLUMN_NUMBER = 4;
     private final static int TABLE_FILTERED_ALL_FIELDS_COLUMN_NUMBER = 4;
 
     public TableSearchPage() {
-        SingletonDriver.init(TABLE_SEARCH_URL);
+        navigateTo("https://www.seleniumeasy.com/test/table-search-filter-demo.html");
     }
 
     /*
     Selectors
      */
-    private final By filterTaskAssigneeStatusSearchSelector = new By.ById("task-table-filter");
-    private final By taskTableCellSelector = new By.ByXPath("//table[@id='task-table']/tbody/tr[not(@style='display: none;')]/td");
-    private final By filterButtonSelector = new By.ByCssSelector(".panel-heading>.pull-right>button");
-    private final By filterByIdInputSelector = new By.ByCssSelector(".filters>th>input[placeholder='#']");
-    private final By filterByUsernameInputSelector = new By.ByCssSelector(".filters>th>input[placeholder='Username']");
-    private final By filterByFirstNameInputSelector = new By.ByCssSelector(".filters>th>input[placeholder='First Name']");
-    private final By filterBySecondNameInputSelector = new By.ByCssSelector(".filters>th>input[placeholder='Last Name']");
-    private final By filterTableCellSelector = new By.ByXPath("//table[@class='table']/tbody/tr[not(@style='display: none;')]/td");
+    private final By filterTaskAssigneeStatusSearchSelector = By.id("task-table-filter");
+    private final By taskTableCellSelector = By.xpath("//table[@id='task-table']/tbody/tr[not(@style='display: none;')]/td");
+    private final By filterButtonSelector = By.cssSelector(".panel-heading>.pull-right>button");
+    private final By filterByIdInputSelector = By.cssSelector(".filters>th>input[placeholder='#']");
+    private final By filterByUsernameInputSelector = By.cssSelector(".filters>th>input[placeholder='Username']");
+    private final By filterByFirstNameInputSelector = By.cssSelector(".filters>th>input[placeholder='First Name']");
+    private final By filterBySecondNameInputSelector = By.cssSelector(".filters>th>input[placeholder='Last Name']");
+    private final By filterTableCellSelector = By.xpath("//table[@class='table']/tbody/tr[not(@style='display: none;')]/td");
 
     /*
     Actions
